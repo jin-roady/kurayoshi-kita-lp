@@ -1,0 +1,3066 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>倉吉北高等学校 | 学校紹介LP【完成版2】</title>
+    <meta name="description" content="倉吉北高等学校の学校紹介LP。少人数制の手厚いサポート、豊富なコース、充実のスクールライフをご紹介します。" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap" rel="stylesheet">
+    <style>
+        /* =========================================================
+           0. Base Styles & Variables (Unified)
+           ========================================================= */
+        :root {
+            /* Colors */
+            --color-primary: #4f46e5;
+            /* Indigo */
+            --color-secondary: #0d9488;
+            /* Teal */
+            --color-accent: #f59e0b;
+            /* Amber */
+            --color-text-dark: #1f2937;
+            --color-text-light: #4b5563;
+            --color-bg-light: #ffffff;
+            --color-bg-alt: #f9fafb;
+            --color-border: #e5e7eb;
+
+            /* Typography */
+            --font-main: 'Noto Sans JP', sans-serif;
+            --font-display: 'Yusei Magic', cursive;
+            /* For special headings */
+
+            /* Spacing */
+            --space-xs: 0.5rem;
+            --space-s: 1rem;
+            --space-m: 1.5rem;
+            --space-l: 3rem;
+            --space-xl: 6rem;
+
+            /* Shadows & Borders */
+            --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --border-radius-sm: 8px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+        }
+
+        /* Base Reset */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-text-dark);
+            line-height: 1.7;
+            background-color: var(--color-bg-light);
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            vertical-align: middle;
+            display: block;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+
+        a:hover {
+            opacity: 0.7;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-m);
+        }
+
+        .section {
+            padding: var(--space-xl) 0;
+            overflow: hidden;
+        }
+
+        .section.alt {
+            background-color: var(--color-bg-alt);
+        }
+
+        .full-bleed {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+        }
+
+        /* Extend to viewport width */
+
+        /* Headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 800;
+            line-height: 1.3;
+        }
+
+        .section-head {
+            text-align: center;
+            margin-bottom: var(--space-l);
+        }
+
+        .eyebrow {
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-xs);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            font-weight: 900;
+            color: var(--color-text-dark);
+            position: relative;
+            display: inline-block;
+            margin: 0;
+        }
+
+        .section-title span {
+            position: relative;
+            z-index: 1;
+            padding: 0 var(--space-s);
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 10px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: 5px;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .section-title.is-visible span {
+            animation: text-pop-up 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        }
+
+        @keyframes text-pop-up {
+            0% {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            80% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .subhead {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-top: var(--space-l);
+            margin-bottom: var(--space-m);
+            color: var(--color-primary);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.8em 1.8em;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            border: 2px solid transparent;
+        }
+
+        .btn-main {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            color: white;
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            opacity: 1;
+        }
+
+        .btn-outline {
+            background-color: white;
+            color: var(--color-text-dark);
+            border-color: var(--color-border);
+        }
+
+        .btn-outline:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            opacity: 1;
+        }
+
+        .btn-light {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--color-text-dark);
+            border-color: transparent;
+        }
+
+        .btn-light:hover {
+            background-color: white;
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            opacity: 1;
+        }
+
+        .btn-accent {
+            background-color: var(--color-accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+            opacity: 1;
+        }
+
+        .btn-wire {
+            display: inline-block;
+            padding: 0.6em 1.5em;
+            border: 1px solid var(--color-primary);
+            color: var(--color-primary);
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-wire:hover {
+            background-color: var(--color-primary);
+            color: white;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-m);
+        }
+
+        .grid-6 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-m);
+        }
+
+        .grid.two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-m);
+        }
+
+        @media (max-width: 768px) {
+
+            .grid-3,
+            .grid-6,
+            .grid.two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========================================================
+           1. Header
+           ========================================================= */
+        .site-header {
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .header-cta {
+            display: flex;
+            gap: var(--space-s);
+        }
+
+        .header-cta .btn {
+            padding: 0.6em 1.2em;
+            font-size: 0.9rem;
+        }
+
+        .brand img {
+            height: 36px;
+            width: auto;
+        }
+
+        @media (max-width: 768px) {
+            .header-cta {
+                display: none;
+            }
+
+            /* Hide desktop CTA on smaller screens */
+            .brand img {
+                height: 32px;
+            }
+        }
+
+        /* =========================================================
+           2. Hero Section
+           ========================================================= */
+        .hero-split-bg {
+            position: relative;
+            height: 90vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            overflow: hidden;
+            isolation: isolate;
+            /* For z-index stacking context */
+        }
+
+        .hero-bg-split {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            z-index: -1;
+        }
+
+        .bg-image {
+            flex: 1;
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7);
+            transition: filter 0.5s ease-in-out;
+        }
+
+        .bg-left {
+            background-image: url('assets/bg-left.jpg');
+        }
+
+        .bg-center {
+            background-image: url('assets/bg-center.jpg');
+        }
+
+        .bg-right {
+            background-image: url('assets/bg-right.jpg');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: var(--space-m);
+            text-shadow: var(--shadow-lg);
+            /* for readability */
+        }
+
+        .headline-wrap h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            margin-bottom: var(--space-m);
+            line-height: 1.1;
+        }
+
+        .copy-actions {
+            display: flex;
+            gap: var(--space-s);
+            justify-content: center;
+        }
+
+        .copy-actions .btn {
+            font-size: 1.1rem;
+            padding: 1em 2.5em;
+        }
+
+        /* =========================================================
+           3. Points Section
+           ========================================================= */
+        .point-row {
+            display: flex;
+            align-items: center;
+            gap: var(--space-l);
+            margin-bottom: var(--space-xl);
+        }
+
+        .point-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .point-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .point-image {
+            flex: 1;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transform: translateY(0);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .point-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            aspect-ratio: 16/9;
+            transition: transform 0.5s ease;
+        }
+
+        .point-row.is-visible .point-image {
+            transform: translateY(0);
+        }
+
+        .point-row.is-visible .point-image img {
+            transform: scale(1.05);
+        }
+
+
+        .point-text {
+            flex: 1;
+            padding: var(--space-s);
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        .point-row.is-visible .point-text {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .point-badge {
+            display: inline-block;
+            background-color: var(--color-primary);
+            color: white;
+            font-weight: 700;
+            padding: 0.3em 1em;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            margin-bottom: var(--space-s);
+        }
+
+        .point-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 900;
+            margin-bottom: var(--space-xs);
+        }
+
+        .point-sub {
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: var(--space-s);
+        }
+
+        .point-desc {
+            color: var(--color-text-light);
+        }
+
+        @media (max-width: 992px) {
+            .point-row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .point-row.reverse {
+                flex-direction: column;
+            }
+
+            .point-image,
+            .point-text {
+                width: 100%;
+            }
+        }
+
+        /* =========================================================
+           4. Numbers Section
+           ========================================================= */
+        .numbers-grid {
+            text-align: center;
+        }
+
+        .number-box {
+            background-color: var(--color-bg-light);
+            padding: var(--space-m);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--color-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .number-box:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .number-label {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            margin-bottom: var(--space-xs);
+        }
+
+        .number-large {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .number-unit {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-text-dark);
+            margin-top: -5px;
+        }
+
+        /* 数字で見る：2列固定（モバイルは1列） */
+        #numbers .numbers-grid {
+            display: grid;
+            /* 念のため明示 */
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-m);
+        }
+
+        @media (max-width: 768px) {
+            #numbers .numbers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =========================================================
+           5. Courses Section
+           ========================================================= */
+        .courseCard {
+            background-color: var(--color-bg-light);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .courseCard:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .courseCard.accent-blue {
+            border-top: 8px solid var(--color-primary);
+        }
+
+        .courseCard.accent-coral {
+            border-top: 8px solid #ef4444;
+            /* red-500 */
+        }
+
+        .courseCard.accent-purple {
+            border-top: 8px solid #8b5cf6;
+            /* violet-500 */
+        }
+
+        .card-image {
+            aspect-ratio: 16/9;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .courseCard:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-content {
+            padding: var(--space-m);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-title {
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin-bottom: var(--space-s);
+            color: var(--color-text-dark);
+        }
+
+        .course-points {
+            margin-bottom: var(--space-m);
+            flex-grow: 1;
+        }
+
+        .course-points li {
+            position: relative;
+            padding-left: 1.5em;
+            margin-bottom: 0.5em;
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+        }
+
+        .course-points li::before {
+            content: '✓';
+            color: var(--color-secondary);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .voice-box {
+            background-color: var(--color-bg-alt);
+            border-radius: var(--border-radius-sm);
+            padding: 0.8em var(--space-s);
+            font-style: italic;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: var(--space-m);
+        }
+
+        /* =========================================================
+           6. School Life Section
+           ========================================================= */
+        .life-cinema {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: var(--space-l);
+        }
+
+        .cinema-track {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        .cinema-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Chrome, Safari */
+
+        .cinema-slide {
+            flex: 0 0 100%;
+            /* Each slide takes full width */
+            scroll-snap-align: center;
+            position: relative;
+            height: 60vh;
+            /* Adjust as needed */
+            min-height: 400px;
+            max-height: 700px;
+            background-color: #333;
+        }
+
+        .cinema-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cinema-caption {
+            position: absolute;
+            bottom: var(--space-m);
+            left: var(--space-m);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: var(--space-s) var(--space-m);
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            gap: var(--space-s);
+            font-weight: 700;
+        }
+
+        .cinema-caption .chip {
+            background-color: var(--color-accent);
+            padding: 0.3em 0.8em;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+        }
+
+        .cinema-caption h3 {
+            font-size: 1.3rem;
+            margin: 0;
+        }
+
+        .cinema-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .cinema-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cinema-nav.prev {
+            left: var(--space-m);
+        }
+
+        .cinema-nav.next {
+            right: var(--space-m);
+        }
+
+        @media (max-width: 768px) {
+            .cinema-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 1.2rem;
+            }
+
+            .cinema-nav.prev {
+                left: var(--space-s);
+            }
+
+            .cinema-nav.next {
+                right: var(--space-s);
+            }
+
+            .cinema-caption h3 {
+                font-size: 1rem;
+            }
+
+            .cinema-caption {
+                bottom: var(--space-s);
+                left: var(--space-s);
+                padding: 0.5em 1em;
+            }
+        }
+
+        .cinema-dots {
+            position: absolute;
+            bottom: var(--space-s);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .cinema-dots li {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            outline: none;
+        }
+
+        .cinema-dots li[aria-current="true"] {
+            background-color: var(--color-accent);
+            transform: scale(1.2);
+        }
+
+        .photo-mosaic {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            /* More flexible grid */
+            grid-auto-rows: minmax(200px, auto);
+            /* Adjust row height */
+            gap: var(--space-s);
+            margin-top: var(--space-l);
+        }
+
+        .photo-mosaic figure {
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .photo-mosaic figure:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .photo-mosaic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .photo-mosaic figure:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Specific mosaic layout adjustments */
+        .photo-mosaic figure:nth-child(1) {
+            grid-column: span 2;
+        }
+
+        /* Make first image wider */
+        .photo-mosaic figure:nth-child(3) {
+            grid-row: span 2;
+        }
+
+        /* Make third image taller */
+        .photo-mosaic figure:nth-child(7) {
+            grid-column: span 2;
+        }
+
+        /* Another wide image */
+
+        @media (max-width: 768px) {
+            .photo-mosaic {
+                grid-template-columns: 1fr;
+            }
+
+            /* Stack on small screens */
+            .photo-mosaic figure:nth-child(n) {
+                grid-column: auto;
+                grid-row: auto;
+            }
+
+            /* Remove specific spans */
+        }
+
+        .life-programs {
+            margin-top: var(--space-l);
+        }
+
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-m);
+        }
+
+        .program-card {
+            background-color: var(--color-bg-light);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            opacity: 1;
+        }
+
+        .program-card img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .program-badge {
+            position: absolute;
+            top: var(--space-s);
+            right: var(--space-s);
+            background-color: var(--color-accent);
+            color: white;
+            padding: 0.3em 0.8em;
+            border-radius: var(--border-radius-sm);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .program-meta {
+            padding: var(--space-m);
+        }
+
+        .program-meta strong {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 0.3em;
+        }
+
+        .program-meta small {
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+        }
+
+        /* =========================================================
+           7. Club Activities Section
+           ========================================================= */
+        .club-slider-wrap {
+            position: relative;
+            margin-bottom: var(--space-l);
+            padding: 0 60px;
+            /* Space for nav buttons */
+        }
+
+        .note {
+            text-align: center;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            margin-bottom: var(--space-m);
+        }
+
+        .club-slider {
+            display: flex;
+            gap: var(--space-m);
+            overflow-x: scroll;
+            scroll-behavior: smooth;
+            padding: var(--space-s) 0;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .club-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .club-card {
+            flex: 0 0 280px;
+            /* Fixed width for cards */
+            background-color: var(--color-bg-light);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .club-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .club-thumb {
+            aspect-ratio: 4/3;
+            overflow: hidden;
+        }
+
+        .club-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .club-card:hover .club-thumb img {
+            transform: scale(1.05);
+        }
+
+        .club-name {
+            font-weight: 700;
+            padding: var(--space-s);
+            color: var(--color-text-dark);
+        }
+
+        .club-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--color-border);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .club-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .club-nav svg {
+            width: 24px;
+            height: 24px;
+            color: var(--color-text-dark);
+        }
+
+        .club-nav:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .club-nav.club-prev {
+            left: 0;
+        }
+
+        .club-nav.club-next {
+            right: 0;
+        }
+
+        @media (max-width: 768px) {
+            .club-slider-wrap {
+                padding: 0;
+            }
+
+            /* Remove side padding on small screens */
+            .club-nav {
+                display: none;
+            }
+
+            /* Hide buttons on touch devices (rely on swipe) */
+            .club-card {
+                flex: 0 0 90%;
+            }
+
+            /* Make cards wider on small screens */
+        }
+
+        /* =========================================================
+           8. Outcomes & Interviews Section
+           ========================================================= */
+        .outcome-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-m);
+            margin-bottom: var(--space-l);
+        }
+
+        .outcome-box {
+            background-color: var(--color-bg-light);
+            padding: var(--space-m);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            border-left: 5px solid var(--color-primary);
+        }
+
+        .outcome-box .label {
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: var(--space-s);
+            color: var(--color-text-dark);
+        }
+
+        .outcome-box p {
+            font-size: 0.95rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.5em;
+        }
+
+        .outcome-box p strong {
+            color: var(--color-text-dark);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        .interview-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-m);
+        }
+
+        .interview-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-s);
+            background-color: var(--color-bg-light);
+            padding: var(--space-m);
+            border-radius: var(--border-radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .interview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .interview-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .interview-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .interview-body {
+            flex-grow: 1;
+        }
+
+        .interview-title {
+            font-size: 0.9rem;
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        .interview-name {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            margin-bottom: 0.5em;
+        }
+
+        .interview-quote {
+            font-weight: 700;
+            font-style: italic;
+            color: var(--color-text-dark);
+            margin: 0;
+        }
+
+        /* =========================================================
+           9. Facilities Section
+           ========================================================= */
+        .facilities-slider {
+            position: relative;
+            margin-top: var(--space-m);
+        }
+
+        .facilities-track {
+            display: flex;
+            gap: var(--space-m);
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: var(--space-s) 0;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .facilities-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .facility-slide {
+            flex: 0 0 32%;
+            /* Approx 3 items on desktop */
+            scroll-snap-align: start;
+            background-color: var(--color-bg-light);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .facility-slide:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .facility-slide img {
+            width: 100%;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .facility-slide:hover img {
+            transform: scale(1.05);
+        }
+
+        .facility-slide figcaption {
+            text-align: center;
+            padding: var(--space-s) var(--space-m);
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--color-text-dark);
+        }
+
+        .facilities-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--color-border);
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: grid;
+            place-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-primary);
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .facilities-nav:hover {
+            background: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        .facilities-nav.prev {
+            left: -24px;
+        }
+
+        .facilities-nav.next {
+            right: -24px;
+        }
+
+        .facilities-nav:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 992px) {
+            .facility-slide {
+                flex: 0 0 48%;
+            }
+
+            /* 2 items on medium screens */
+            .facilities-nav.prev {
+                left: 0;
+            }
+
+            .facilities-nav.next {
+                right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .facility-slide {
+                flex: 0 0 90%;
+            }
+
+            /* 1 item on small screens */
+            .facilities-nav {
+                display: none;
+            }
+
+            /* Hide buttons on touch devices */
+        }
+
+        /* =========================================================
+           10. Entry & CTA Sections
+           ========================================================= */
+        .entry-panel {
+            background-color: var(--color-bg-light);
+            padding: var(--space-l);
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .entry-lead {
+            font-size: 1.2rem;
+            color: var(--color-text-dark);
+            margin-bottom: var(--space-l);
+        }
+
+        .big-cta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-m);
+            border-radius: var(--border-radius-md);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .big-cta.c1 {
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+        }
+
+        .big-cta.c2 {
+            background: linear-gradient(45deg, var(--color-accent), #f97316);
+            /* orange-500 */
+        }
+
+        .big-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            opacity: 1;
+        }
+
+        .notes {
+            margin-top: var(--space-l);
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+            list-style: disc;
+            padding-left: var(--space-m);
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-belt {
+            background-color: var(--color-primary);
+            padding: var(--space-m) 0;
+            color: white;
+        }
+
+        .cta-belt-inner {
+            display: flex;
+            gap: var(--space-m);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .belt-card {
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--border-radius-md);
+            padding: var(--space-s) var(--space-m);
+            display: flex;
+            align-items: center;
+            gap: var(--space-s);
+            color: white;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+
+        .belt-card:hover {
+            background-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+            opacity: 1;
+        }
+
+        .belt-icon {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .belt-text strong {
+            display: block;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .belt-text span {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        /* =========================================================
+           11. FAQ Section
+           ========================================================= */
+        .faq {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--color-bg-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--border-radius-md);
+            margin-bottom: var(--space-s);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item[open] {
+            background-color: var(--color-bg-alt);
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-item summary {
+            display: flex;
+            align-items: center;
+            padding: var(--space-s) var(--space-m);
+            font-weight: 700;
+            color: var(--color-text-dark);
+            cursor: pointer;
+            outline: none;
+            position: relative;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        /* Hide default marker */
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.5rem;
+            margin-left: auto;
+            color: var(--color-primary);
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] summary::after {
+            content: '−';
+            transform: rotate(180deg);
+        }
+
+        .faq-item .q {
+            background-color: var(--color-primary);
+            color: white;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            font-size: 0.9rem;
+            margin-right: var(--space-s);
+            flex-shrink: 0;
+        }
+
+        .faq-item .a {
+            padding: var(--space-xs) var(--space-m) var(--space-m);
+            border-top: 1px solid var(--color-border);
+            color: var(--color-text-light);
+            display: flex;
+            align-items: flex-start;
+            line-height: 1.6;
+        }
+
+        .faq-item .a-label {
+            background-color: var(--color-accent);
+            color: white;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            font-size: 0.9rem;
+            margin-right: var(--space-s);
+            flex-shrink: 0;
+        }
+
+        /* =========================================================
+           12. Footer
+           ========================================================= */
+        .site-footer {
+            background-color: var(--color-text-dark);
+            color: #d1d5db;
+            padding-top: var(--space-l);
+            font-size: 0.9rem;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: var(--space-l);
+            margin-bottom: var(--space-m);
+            flex-wrap: wrap;
+        }
+
+        .footer-brand {
+            flex: 2;
+            min-width: 250px;
+        }
+
+        .footer-brand img {
+            margin-bottom: var(--space-s);
+        }
+
+        .footer-brand address {
+            font-style: normal;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        .footer-links .subhead {
+            color: white;
+            font-size: 1.1rem;
+            text-align: left;
+            margin-bottom: var(--space-s);
+            margin-top: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.5em;
+        }
+
+        .footer-links a {
+            color: #9ca3af;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            opacity: 1;
+        }
+
+        .footer-cta {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-s);
+            align-items: flex-start;
+        }
+
+        .footer-cta .btn {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .footer-cta .btn-main {
+            background: var(--color-secondary);
+        }
+
+        .footer-copy {
+            border-top: 1px solid #4b5563;
+            padding-top: var(--space-s);
+            text-align: center;
+            margin-top: var(--space-l);
+            padding-bottom: var(--space-s);
+        }
+
+        @media (max-width: 768px) {
+            .footer-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-cta {
+                align-items: stretch;
+                max-width: unset;
+            }
+
+            .footer-cta .btn {
+                max-width: 100%;
+            }
+        }
+
+        /* =========================================================
+           13. Side Rail Navigation
+           ========================================================= */
+        .side-rail {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+            box-shadow: var(--shadow-lg);
+            padding: var(--space-s);
+            z-index: 90;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-s);
+        }
+
+        .rail-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: var(--space-xs);
+            color: var(--color-text-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .rail-block:hover {
+            color: var(--color-primary);
+            transform: translateY(-3px);
+            opacity: 1;
+        }
+
+        .rail-ico {
+            width: 32px;
+            height: 32px;
+            color: var(--color-primary);
+            margin-bottom: 4px;
+        }
+
+        .rail-visit .rail-ico {
+            color: var(--color-accent);
+        }
+
+        .rail-sep {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 992px) {
+            .side-rail {
+                display: none;
+            }
+
+            /* Hide side rail on smaller screens */
+        }
+
+        /* =========================================================
+           14. Back To Top Button
+           ========================================================= */
+        .back-to-top {
+            position: fixed;
+            bottom: var(--space-m);
+            right: var(--space-m);
+            background-color: var(--color-primary);
+            color: white;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            box-shadow: var(--shadow-md);
+            z-index: 80;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+        }
+
+        .back-to-top.is-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .back-to-top svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* セクションタイトルの中央寄せ＆余白追加 */
+        .section-title {
+            display: inline-block;
+            /* テキスト幅に合わせる */
+            text-align: center;
+            margin-bottom: var(--space-m);
+            /* 下に余白を追加 */
+            position: relative;
+        }
+
+        /* タイトルのグラデ下線をテキスト幅に合わせるよう調整 */
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+            border-radius: 4px;
+            opacity: 0.2;
+            z-index: 0;
+            transform: none;
+            /* 中央寄せを解除してテキスト幅に沿わせる */
+        }
+
+        /* アイブロウも中央に */
+        .section .eyebrow {
+            display: block;
+            text-align: center;
+            margin-bottom: var(--space-xs);
+        }
+
+        .lead-message-section {
+            background-color: #f9fafb;
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+
+        .lead-message p {
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.8;
+            color: var(--color-text-dark);
+            max-width: 800px;
+            margin: 0 auto;
+            white-space: pre-line;
+        }
+
+        @media (max-width: 768px) {
+            .lead-message p {
+                font-size: 1.05rem;
+                padding: 0 var(--space-s);
+            }
+        }
+
+        /* =========================
+   ABOUT セクション
+   ========================= */
+        .about-intro {
+            position: relative;
+            background-color: var(--color-bg-light);
+            overflow: hidden;
+            padding: var(--space-xl) 0;
+        }
+
+        /* 背面の巨大タイポ（ウォーターマーク） */
+        .about-intro::before {
+            content: "KURAYOSHI KITA";
+            position: absolute;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            font-family: var(--font-display);
+            font-weight: 900;
+            letter-spacing: 0.08em;
+            font-size: clamp(4rem, 18vw, 12rem);
+            color: var(--color-text-dark);
+            opacity: 0.05;
+            /* さりげなく */
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* 3カラム風の中身 */
+        .about-inner {
+            position: relative;
+            /* ::beforeより上に表示 */
+            display: grid;
+            grid-template-columns: 1fr minmax(320px, 720px) 1fr;
+            /* 左  中央  右 */
+            align-items: end;
+            gap: clamp(var(--space-s), 3vw, var(--space-l));
+            z-index: 1;
+        }
+
+        /* 左右の人物写真 */
+        .about-figure {
+            align-self: end;
+            justify-self: center;
+            max-width: 320px;
+        }
+
+        .about-figure img {
+            width: min(100%, 320px);
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 12px 24px rgba(0, 0, 0, .08));
+        }
+
+        /* 中央コンテンツ */
+        .about-center {
+            text-align: center;
+            padding: 0 var(--space-m);
+            backdrop-filter: none;
+        }
+
+        /* コピー本文 */
+        .about-copy {
+            margin-top: var(--space-m);
+            margin-bottom: var(--space-m);
+            font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+            line-height: 1.9;
+            color: var(--color-text-dark);
+        }
+
+        .about-copy p+p {
+            margin-top: 0.8em;
+        }
+
+        /* CTAボタン（画像の参考デザイン：グラデ・丸角・右矢印） */
+        .about-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            padding: 0.9em 1.6em;
+            border-radius: 9999px;
+            font-weight: 800;
+            box-shadow: var(--shadow-md);
+            background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+            color: #fff;
+            transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+        }
+
+        .about-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            opacity: 1;
+        }
+
+        .about-cta span {
+            font-weight: 900;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 992px) {
+            .about-inner {
+                grid-template-columns: 1fr 1fr;
+                /* 2カラム：左写真 + 中央（見出し/本文/CTA） */
+                grid-template-areas:
+                    "left center"
+                    "right center";
+            }
+
+            .about-figure-left {
+                grid-area: left;
+            }
+
+            .about-center {
+                grid-area: center;
+            }
+
+            .about-figure-right {
+                grid-area: right;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-inner {
+                grid-template-columns: 1fr;
+                /* 1カラム縦積み */
+                gap: var(--space-m);
+            }
+
+            .about-figure {
+                max-width: 240px;
+            }
+
+            .about-intro::before {
+                font-size: clamp(3rem, 26vw, 8rem);
+                /* タイポを少し小さく */
+            }
+        }
+
+        /* 既存デザインと統一：タイトルの装飾は共通 .section-title が効く */
+        #about .section-title {
+            margin-top: var(--space-s);
+            /* eyebrow との間隔を少し控えめに */
+        }
+
+        .about-hero {
+            position: relative;
+            background-color: #fff;
+            overflow: hidden;
+            padding: clamp(4rem, 7vw, 7rem) 0;
+            min-height: clamp(560px, 72vh, 960px);
+        }
+
+        .about-hero::before {
+            content: "KURAYOSHI KITA";
+            white-space: pre-line;
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: var(--font-display, sans-serif);
+            font-weight: 900;
+            font-size: clamp(3.5rem, 20vw, 12rem);
+            line-height: 0.9;
+            color: #000;
+            opacity: 0.05;
+            pointer-events: none;
+            user-select: none;
+            z-index: 0;
+        }
+
+        /* 前面に配置 */
+        .about-hero .about-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* レスポンシブ調整 */
+        @media (max-width: 992px) {
+            .about-hero::before {
+                font-size: clamp(3rem, 28vw, 10rem);
+                line-height: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                padding: 3rem 1rem;
+            }
+
+            .about-hero::before {
+                font-size: clamp(2.5rem, 30vw, 8rem);
+                line-height: 1.2;
+            }
+
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-img {
+                margin-bottom: 1.5rem;
+            }
+
+            .about-content p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* === Life Cinema を他コンテンツと同じ幅に収める === */
+        .life-cinema {
+            /* 既存: position, overflow, margin-bottom はそのまま活かす */
+            max-width: 1200px;
+            /* .container と同じ幅に合わせる */
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-md);
+            background: #000;
+            /* 画像の上下に余白が出るケースの下地色 */
+        }
+
+        /* レガシー互換：HTML側で full-bleed を消せない場合の保険 */
+        .life-cinema.full-bleed {
+            width: auto !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
+        }
+
+        /* スライドの高さを他画像と調和（16:9, 最大高さを制御） */
+        .cinema-slide {
+            height: auto;
+            /* 60vh をやめる */
+            aspect-ratio: 16 / 9;
+            /* 比率固定（他画像の16:9と統一） */
+            max-height: 520px;
+            /* セクションと馴染む上限 */
+            min-height: 300px;
+            /* スマホで潰れすぎないように */
+        }
+
+        /* 画像のはみ出し防止（既存: object-fit: cover でOKだが念のため） */
+        .cinema-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ナビ位置は内側に（コンテナ化で端に寄りすぎるのを防止） */
+        .cinema-nav.prev {
+            left: var(--space-m);
+        }
+
+        .cinema-nav.next {
+            right: var(--space-m);
+        }
+
+        /* ドットやキャプションの余白も少しだけ内側に */
+        .cinema-caption {
+            left: var(--space-m);
+            bottom: var(--space-m);
+        }
+
+        .cinema-dots {
+            bottom: var(--space-s);
+        }
+
+        .cinema-dots {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        /* =========================
+   Pre-Footer Split Section
+   ========================= */
+.prefooter{
+  position: relative;
+  max-width: 1200px;        /* 他セクションと幅を統一 */
+  margin: var(--space-l) auto;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(320px, 48vh, 520px);
+  isolation: isolate;
+}
+
+/* 左右の全面クリック可能パネル */
+.prefooter .pf-panel{
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 背景画像（差し替えてください） */
+.prefooter .pf-left{
+  background-image: url('assets/img/prefooter_left.jpg');
+}
+.prefooter .pf-right{
+  background-image: url('assets/img/prefooter_right.jpg');
+}
+
+/* カラー被せ（スクショのように濃いトーン） */
+.prefooter .pf-panel::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .78;             /* 透過度はお好みで */
+}
+.prefooter .pf-left::before{
+  /* 赤系オーバーレイ */
+  background: #e11d48;      /* rose-600 */
+}
+.prefooter .pf-right::before{
+  /* ティール系オーバーレイ */
+  background: #0d9488;      /* teal-600 */
+}
+
+/* 中央の内容 */
+.prefooter .pf-inner{
+  position: relative;
+  z-index: 1;
+  padding: var(--space-m);
+}
+
+/* 白アウトラインの丸ボタン */
+.pf-btn-ghost{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1em 2.2em;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  letter-spacing: .03em;
+  backdrop-filter: saturate(130%);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,.15);
+}
+.pf-panel:hover .pf-btn-ghost{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.25);
+  opacity: 1;
+}
+
+/* 中央下の丸い矢印 */
+.pf-fab{
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--color-text-dark);
+  font-weight: 900;
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .2s ease;
+}
+.pf-fab:hover{
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* レスポンシブ：縦積み */
+@media (max-width: 992px){
+  .prefooter{
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .pf-panel{
+    min-height: 42vh;
+  }
+}
+
+/* 角の馴染みを少し強める（任意） */
+.prefooter::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+  pointer-events:none;
+}
+/* =========================
+   Pre-Footer Split Section (theme-aligned)
+   ========================= */
+.prefooter{
+  position: relative;
+  max-width: 1200px;                 /* 他セクションと同じ */
+  margin: var(--space-l) auto;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);       /* 既存カード同等 */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: clamp(320px, 48vh, 520px);
+  isolation: isolate;
+}
+
+/* 左右の全面クリック領域 */
+.prefooter .pf-panel{
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+/* 背景画像（必要に応じて差し替え） */
+.prefooter .pf-left  { background-image: url('assets/cta_admission.jpg'); }
+.prefooter .pf-right { background-image: url('assets/cta_official.jpg'); }
+
+/* —— カラー被せ：サイト基調色に統一 —— */
+/* 左は primary 寄り、右は secondary 寄りの“透過グラデ” */
+.prefooter .pf-panel::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: .78;
+}
+.prefooter .pf-left::before{
+  background: linear-gradient(0deg,
+    color-mix(in oklab, var(--color-primary) 92%, black) 0%,
+    var(--color-primary) 100%);
+}
+.prefooter .pf-right::before{
+  background: linear-gradient(0deg,
+    color-mix(in oklab, var(--color-secondary) 92%, black) 0%,
+    var(--color-secondary) 100%);
+}
+
+/* 中央コンテンツ */
+.prefooter .pf-inner{
+  position: relative;
+  z-index: 1;
+  padding: var(--space-m);
+}
+
+/* —— ボタン：.btn系の見た目に合わせる（白ゴースト） —— */
+.pf-btn-ghost{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1em 2.2em;
+  border: 2px solid #fff;
+  border-radius: 9999px;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(1rem, 2.1vw, 1.25rem);
+  letter-spacing: .03em;
+  background: rgba(255,255,255,0.06);
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease, background .2s ease, opacity .2s ease;
+}
+.pf-panel:hover .pf-btn-ghost{
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  background: rgba(255,255,255,0.12);
+}
+
+/* —— 中央下の丸い矢印：LPのボタン系と統一 —— */
+.pf-fab{
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--color-primary);
+  font-weight: 900;
+  box-shadow: var(--shadow-md);
+  z-index: 2;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .2s ease;
+  border: 2px solid var(--color-border);
+}
+.pf-fab:hover{
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* レスポンシブ：縦積み */
+@media (max-width: 992px){
+  .prefooter{ grid-template-columns: 1fr; min-height: auto; }
+  .pf-panel{ min-height: 42vh; }
+}
+
+    </style>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a class="brand" href="#top" aria-label="倉吉北高等学校 トップへ">
+                <img src="assets/logo_catch.png" alt="倉吉北高等学校" width="160" height="40" loading="lazy" />
+            </a>
+            <nav class="header-cta" aria-label="主要案内">
+                <a class="btn btn-outline" href="#contact">お問い合わせ</a>
+                <a class="btn btn-main" href="#entry">資料請求</a>
+                <a class="btn btn-accent" href="#visit">個別相談会</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="top">
+
+        <section class="hero-split-bg" aria-label="ヒーロービジュアル">
+            <div class="hero-bg-split">
+                <div class="bg-image bg-left"></div>
+                <div class="bg-image bg-center"></div>
+                <div class="bg-image bg-right"></div>
+            </div>
+            <div class="hero-content">
+                <div class="headline-wrap">
+                    <h1>夢をもって未来に、<br>まっすぐ。</h1>
+                </div>
+                <div class="copy-actions">
+                    <a class="btn btn-main" href="#entry">資料請求</a>
+                    <a class="btn btn-light" href="#visit">個別相談会のご予約</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about-hero section alt">
+            <div class="container">
+                <div class="about-wrapper"
+                    style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;">
+
+                    <!-- 左画像 -->
+                    <div class="about-img" style="flex: 1 1 250px; text-align: center; padding: 1rem;">
+                        <img src="assets/student_boy.png" alt="男子生徒"
+                            style="max-width: 100%; height: auto; max-height: 600px;">
+                    </div>
+
+                    <!-- 中央コンテンツ -->
+                    <div class="about-content" style="flex: 2 1 600px; text-align: center; padding: 1rem;">
+                        <div class="eyebrow"
+                            style="font-size: 1.5rem; font-weight: bold; color: #4a90e2; letter-spacing: 0.08em; margin-bottom: 1.5rem;">
+                            ABOUT
+                        </div>
+                        <p style="font-size: 1.3rem; line-height: 2.2; margin-bottom: 2rem; font-weight: 500;">
+                            変化の激しい時代の中で、揺るぎない「自分」を育むために。<br>
+                            倉吉北高校は、<strong style="color: #4a67f5;">一人ひとり</strong>の
+                            <strong style="color: #20b3b3;">夢と個性</strong>に寄り添い、<br>
+                            確かな学力と豊かな人間性を育む3年間を約束します。
+                        </p>
+                        <a class="btn btn-main" href="#entry">資料請求をする</a>
+                    </div>
+
+                    <!-- 右画像 -->
+                    <div class="about-img" style="flex: 1 1 250px; text-align: center; padding: 1rem;">
+                        <img src="assets/student_girl.png" alt="女子生徒"
+                            style="max-width: 100%; height: auto; max-height: 600px;">
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section id="points" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div class="eyebrow">FEATURES</div>
+                    <h2 class="section-title"><span>倉吉北高校の3つの魅力</span></h2>
+                </div>
+                <div class="point-row">
+                    <div class="point-image">
+                        <img src="assets/point03.jpg" alt="進路サポートの様子" loading="lazy">
+                    </div>
+                    <div class="point-text">
+                        <div class="point-badge">POINT 01</div>
+                        <h3 class="point-title">進学も就職も、自分に合った進路サポート</h3>
+                        <p class="point-sub">国公立・私立大合格／企業就職実績</p>
+                        <p class="point-desc">一人ひとりの志望や適性に合わせて、受験対策から就職支援まで伴走。模試対策・面接練習・企業連携で確かな結果につなげます。</p>
+                    </div>
+                </div>
+                <div class="point-row reverse">
+                    <div class="point-image">
+                        <img src="assets/point02.jpg" alt="部活動の様子" loading="lazy">
+                    </div>
+                    <div class="point-text">
+                        <div class="point-badge">POINT 02</div>
+                        <h3 class="point-title">夢中になれる部活動と、仲間と過ごす3年間</h3>
+                        <p class="point-sub">甲子園・全国大会の実績</p>
+                        <p class="point-desc">文武両道を支える指導と環境。全国大会・県大会上位の実績多数。仲間と切磋琢磨できる多彩な運動部・文化部がそろっています。</p>
+                    </div>
+                </div>
+                <div class="point-row">
+                    <div class="point-image">
+                        <img src="assets/point01.jpg" alt="少人数で学ぶ様子" loading="lazy">
+                    </div>
+                    <div class="point-text">
+                        <div class="point-badge">POINT 03</div>
+                        <h3 class="point-title">1人ひとりに寄り添う担任と支援体制</h3>
+                        <p class="point-sub">0限授業・少人数制・先生との距離感</p>
+                        <p class="point-desc">少人数制で質問しやすく、基礎からステップアップ。0限授業や補習、個別面談など、学びを支える仕組みが充実しています。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="numbers" class="section alt" aria-labelledby="numbers-heading">
+            <div class="container">
+
+                <!-- 統一されたセクションタイトル構造 -->
+                <div class="section-head">
+                    <div class="eyebrow">STATISTICS</div>
+                    <h2 id="numbers-heading" class="section-title"><span>数字で見る倉吉北高校</span></h2>
+                </div>
+
+                <div class="grid-6 numbers-grid" role="list">
+                    <article class="number-box" role="listitem">
+                        <div class="number-label">全校生徒数</div>
+                        <div class="number-large">521</div>
+                        <div class="number-unit">名</div>
+                    </article>
+                    <article class="number-box" role="listitem">
+                        <div class="number-label">部活動加入率</div>
+                        <div class="number-large">85</div>
+                        <div class="number-unit">%</div>
+                    </article>
+                    <article class="number-box" role="listitem">
+                        <div class="number-label">大学進学率</div>
+                        <div class="number-large">62</div>
+                        <div class="number-unit">%</div>
+                    </article>
+                    <article class="number-box" role="listitem">
+                        <div class="number-label">就職内定率</div>
+                        <div class="number-large">100</div>
+                        <div class="number-unit">%</div>
+                    </article>
+                    <article class="number-box" role="listitem">
+                        <div class="number-label">創立</div>
+                        <div class="number-large">75</div>
+                        <div class="number-unit">年</div>
+                    </article>
+                    <article class="number-box" role="listitem">
+                        <div class="number-label">教員数</div>
+                        <div class="number-large">48</div>
+                        <div class="number-unit">名</div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="courses" class="section" aria-labelledby="courses-heading">
+            <div class="container">
+                <div class="section-head">
+                    <div class="eyebrow">COURSES</div>
+                    <h2 class="section-title"><span>あなたの夢に合わせて選べる3つのコース</span></h2>
+                </div>
+                <div class="grid-3 course-grid">
+                    <article class="courseCard accent-blue">
+                        <div class="card-image"><img src="assets/bg-left.jpg" alt="特別進学コースの授業風景" /></div>
+                        <div class="card-content">
+                            <h3 class="course-title">特別進学コース</h3>
+                            <ul class="course-points">
+                                <li>0限授業実施</li>
+                                <li>個別指導充実</li>
+                                <li>国公立大学対応</li>
+                            </ul>
+                            <div class="voice-box">💬 「先生との距離が近い」</div>
+                            <a class="btn-wire" href="#contact">詳細を見る</a>
+                        </div>
+                    </article>
+                    <article class="courseCard accent-coral">
+                        <div class="card-image"><img src="assets/bg-center.jpg" alt="総合コースの授業風景" /></div>
+                        <div class="card-content">
+                            <h3 class="course-title">総合コース</h3>
+                            <ul class="course-points">
+                                <li>2年次から4系統選択</li>
+                                <li>進学 / 情報 / 福祉 / スポーツ</li>
+                                <li>資格取得サポート</li>
+                            </ul>
+                            <div class="voice-box">💬 「自分の興味を深められる」</div>
+                            <a class="btn-wire" href="#contact">詳細を見る</a>
+                        </div>
+                    </article>
+                    <article class="courseCard accent-purple">
+                        <div class="card-image"><img src="assets/bg-right.jpg" alt="調理科の実習風景" /></div>
+                        <div class="card-content">
+                            <h3 class="course-title">調理科</h3>
+                            <ul class="course-points">
+                                <li>卒業と同時に調理師免許取得</li>
+                                <li>辻調グループ提携</li>
+                                <li>レストラン実習</li>
+                            </ul>
+                            <div class="voice-box">💬 「プロの技術が身につく」</div>
+                            <a class="btn-wire" href="#contact">詳細を見る</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="life" class="section" aria-labelledby="life-heading">
+            <div class="container">
+
+                <!-- 統一済みのタイトル構造 -->
+                <div class="section-head">
+                    <div class="eyebrow">SCHOOL LIFE</div>
+                    <h2 id="life-heading" class="section-title"><span>スクールライフ</span></h2>
+                </div>
+
+            </div>
+
+            <div class="life-cinema" role="region" aria-label="写真で見る北高の一年">
+                <button class="cinema-nav prev" type="button" aria-label="前へ">‹</button>
+                <div class="cinema-track" id="lifeCinema" tabindex="0">
+                    <article class="cinema-slide">
+                        <img src="assets/04.jpg" alt="4月 入学式・バス遠足">
+                        <div class="cinema-caption"><span class="chip">4月</span>
+                            <h3>入学式・バス遠足</h3>
+                        </div>
+                    </article>
+                    <article class="cinema-slide">
+                        <img src="assets/06.jpg" alt="6月 北高祭">
+                        <div class="cinema-caption"><span class="chip">6月</span>
+                            <h3>北高祭</h3>
+                        </div>
+                    </article>
+                    <article class="cinema-slide">
+                        <img src="assets/09.jpg" alt="9月 体育祭">
+                        <div class="cinema-caption"><span class="chip">9月</span>
+                            <h3>体育祭</h3>
+                        </div>
+                    </article>
+                    <article class="cinema-slide">
+                        <img src="assets/10.jpg" alt="10月 強歩大会">
+                        <div class="cinema-caption"><span class="chip">10月</span>
+                            <h3>強歩大会</h3>
+                        </div>
+                    </article>
+                </div>
+                <button class="cinema-nav next" type="button" aria-label="次へ">›</button>
+                <ol class="cinema-dots" id="lifeDots" aria-hidden="true"></ol>
+            </div>
+
+            <div class="container">
+                <div class="photo-mosaic" aria-label="イベントギャラリー">
+                    <figure><img src="assets/event01.jpg" alt="北高祭の様子"></figure>
+                    <figure><img src="assets/event02.jpg" alt="修学旅行"></figure>
+                    <figure><img src="assets/event03.png" alt="体育祭"></figure>
+                    <figure><img src="assets/event04.png" alt="文化祭ステージ発表"></figure>
+                    <figure><img src="assets/event05.png" alt="部活動発表会"></figure>
+                    <figure><img src="assets/event06.png" alt="ボランティア活動"></figure>
+                </div>
+
+                <div class="life-programs">
+                    <div class="program-grid">
+                        <a class="program-card" href="#visit">
+                            <img src="assets/hawaii.jpg" alt="ハワイ研修">
+                            <span class="program-badge">10日間</span>
+                            <div class="program-meta"><strong>ハワイ研修</strong><small>語学研修＋文化交流</small></div>
+                        </a>
+                        <a class="program-card" href="#visit">
+                            <img src="assets/nz.jpg" alt="ニュージーランド留学">
+                            <span class="program-badge">3か月</span>
+                            <div class="program-meta"><strong>ニュージーランド留学</strong><small>ホームステイ体験</small></div>
+                        </a>
+                        <a class="program-card" href="#visit">
+                            <img src="assets/summer.jpg" alt="夏期短期留学">
+                            <span class="program-badge">1〜4週間</span>
+                            <div class="program-meta"><strong>夏期短期留学</strong><small>複数国から選択可能</small></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="club-achievements" class="section" aria-labelledby="club-heading">
+            <div class="container">
+
+                <!-- タイトル中央＋下線＋eyebrow -->
+                <div class="section-head">
+                    <div class="eyebrow">CLUB ACTIVITIES</div>
+                    <h2 id="club-heading" class="section-title"><span>全国レベルの部活動</span></h2>
+                </div>
+
+                <h3 class="subhead">運動部</h3>
+                <p class="note">左右のボタンでスクロールできます（スワイプ／ホイールでも可）。</p>
+                <div class="club-slider-wrap" data-step="3">
+                    <button class="club-nav club-prev" aria-label="運動部を左へ" title="左へ">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+
+                    <div class="club-slider" id="slider-sports" tabindex="0" aria-label="運動部スライダー">
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/track.jpg" alt="陸上競技部の写真"></figure>
+                            <div class="club-name">陸上競技部（男・女）</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/baseball_boys.jpg" alt="硬式野球部（男子）の写真">
+                            </figure>
+                            <div class="club-name">硬式野球部（男子）</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/baseball_girls.jpg" alt="硬式野球部（女子）の写真"></figure>
+                            <div class="club-name">硬式野球部（女子）</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/soccer.jpg" alt="サッカー部の写真"></figure>
+                            <div class="club-name">サッカー部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/basketball_boys.jpg" alt="男子バスケットボール部の写真">
+                            </figure>
+                            <div class="club-name">男子バスケットボール部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/basketball_girls.jpg" alt="女子バスケットボール部の写真">
+                            </figure>
+                            <div class="club-name">女子バスケットボール部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/tabletennis.jpg" alt="卓球部の写真">
+                            </figure>
+                            <div class="club-name">卓球部（男・女）</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/judo.jpg" alt="柔道部の写真"></figure>
+                            <div class="club-name">柔道部（男・女）</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/kendo.jpg" alt="剣道部の写真"></figure>
+                            <div class="club-name">剣道部（男・女）</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/dance.jpg" alt="ダンス部の写真"></figure>
+                            <div class="club-name">ダンス部</div>
+                        </article>
+                    </div>
+
+                    <button class="club-nav club-next" aria-label="運動部を右へ" title="右へ">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <h3 class="subhead">文化部</h3>
+                <div class="club-slider-wrap" data-step="3">
+                    <button class="club-nav club-prev" aria-label="文化部を左へ" title="左へ">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+
+                    <div class="club-slider" id="slider-culture" tabindex="0" aria-label="文化部スライダー">
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/brassband.jpg" alt="吹奏楽部の写真"></figure>
+                            <div class="club-name">吹奏楽部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/literature.jpg" alt="文芸部の写真"></figure>
+                            <div class="club-name">文芸部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/calligraphy.jpg" alt="書道部の写真">
+                            </figure>
+                            <div class="club-name">書道部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/art.jpg" alt="美術部の写真"></figure>
+                            <div class="club-name">美術部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/tea.jpg" alt="茶道部の写真"></figure>
+                            <div class="club-name">茶道部</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/cooking.jpg" alt="調理クラブの写真"></figure>
+                            <div class="club-name">調理クラブ</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/interact.jpg" alt="インターアクトクラブの写真">
+                            </figure>
+                            <div class="club-name">インターアクトクラブ</div>
+                        </article>
+                        <article class="club-card">
+                            <figure class="club-thumb"><img src="assets/research.jpg" alt="探究研究部の写真"></figure>
+                            <div class="club-name">部落解放研究部</div>
+                        </article>
+                    </div>
+
+                    <button class="club-nav club-next" aria-label="文化部を右へ" title="右へ">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div style="text-align:center;margin-top:12px">
+                    <a class="btn btn-wire" href="#clubs">全ての部活動を見る</a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="outcomes" class="section" aria-labelledby="outcomes-heading">
+            <div class="container">
+
+                <!-- 見出しブロック（中央寄せ＋下線は既存CSSで反映） -->
+                <div class="section-head">
+                    <div class="eyebrow">OUTCOMES</div>
+                    <h2 id="outcomes-heading" class="section-title"><span>確かな進路実績</span></h2>
+                </div>
+
+                <div class="outcome-boxes">
+                    <div class="outcome-box">
+                        <h3 class="label">主な進学先（過去3年）</h3>
+                        <p><strong>国公立大学</strong><br>大阪大学 / 鳥取大学 / 島根大学</p>
+                        <p><strong>私立大学</strong><br>早稲田大学 / 関西学院大学 / 立命館大学</p>
+                    </div>
+                    <div class="outcome-box">
+                        <h3 class="label">主な就職先（過去3年）</h3>
+                        <p><strong>公務員・公共</strong><br>鳥取県職員 / 倉吉市職員 / 日本郵便</p>
+                        <p><strong>民間企業</strong><br>JR西日本 / 花王 / マツダ / 地元優良企業多数</p>
+                    </div>
+                </div>
+
+                <h3 class="subhead">卒業生インタビュー</h3>
+                <div class="interview-cards">
+                    <div class="interview-card">
+                        <div class="interview-image"><img src="assets/interview_a.jpg" alt="Aさんの写真"></div>
+                        <div class="interview-body">
+                            <div class="interview-title">鳥取大学医学部 在学</div>
+                            <div class="interview-name">特進コース卒 Aさん</div>
+                            <p class="interview-quote">「0限授業と個別指導で合格できました」</p>
+                        </div>
+                    </div>
+                    <div class="interview-card">
+                        <div class="interview-image"><img src="assets/interview_b.jpg" alt="Bさんの写真"></div>
+                        <div class="interview-body">
+                            <div class="interview-title">日本郵便（株） 在職</div>
+                            <div class="interview-name">総合コース卒 Bさん</div>
+                            <p class="interview-quote">「部活と就活を両立できる環境でした」</p>
+                        </div>
+                    </div>
+                    <div class="interview-card">
+                        <div class="interview-image"><img src="assets/interview_c.jpg" alt="Cさんの写真"></div>
+                        <div class="interview-body">
+                            <div class="interview-title">辻調理師専門学校 在学</div>
+                            <div class="interview-name">調理科卒 Cさん</div>
+                            <p class="interview-quote">「実習で学んだ技術が今も活きています」</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="facilities" class="section alt" aria-labelledby="facilities-heading">
+            <div class="container">
+
+                <!-- ✅ セクション見出しを中央寄せ＆下線対応にする -->
+                <div class="section-head">
+                    <div class="eyebrow">FACILITIES</div>
+                    <h2 id="facilities-heading" class="section-title"><span>施設・寮</span></h2>
+                </div>
+
+                <div class="facilities-slider" role="region" aria-label="施設スライダー">
+                    <button class="facilities-nav prev" aria-label="前の施設へ" type="button">‹</button>
+                    <button class="facilities-nav next" aria-label="次の施設へ" type="button">›</button>
+                    <div class="facilities-track" id="facilitiesTrack">
+                        <figure class="facility-slide">
+                            <img src="assets/facility_campus.jpg" alt="校舎外観">
+                            <figcaption>校舎</figcaption>
+                        </figure>
+                        <figure class="facility-slide">
+                            <img src="assets/facility_library.jpg" alt="図書室">
+                            <figcaption>図書室</figcaption>
+                        </figure>
+                        <figure class="facility-slide">
+                            <img src="assets/facility_gym.jpg" alt="体育館">
+                            <figcaption>体育館</figcaption>
+                        </figure>
+                        <figure class="facility-slide">
+                            <img src="assets/facility_dorm.jpg" alt="学生寮">
+                            <figcaption>学生寮</figcaption>
+                        </figure>
+                        <figure class="facility-slide">
+                            <img src="assets/ground.jpg" alt="グラウンド">
+                            <figcaption>グラウンド</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="entry" class="section">
+            <div class="container">
+                <div class="section-head">
+                    <div class="eyebrow">ENTRY</div>
+                    <h2 class="section-title"><span>個別相談会 / 申込</span></h2>
+                </div>
+                <div class="entry-panel">
+                    <p class="entry-lead">実際に見て、聞いて、感じてください。教職員・在校生がご案内します。</p>
+                    <div class="grid two-col">
+                        <a class="big-cta c1" href="#visit">個別相談会のご予約</a>
+                        <a class="big-cta c2" href="#contact">資料請求</a>
+                    </div>
+                    <ul class="notes">
+                        <li>定員に達し次第締切となります。</li>
+                        <li>保護者の方の同伴も歓迎します。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section alt">
+            <div class="container">
+                <div class="section-head">
+                    <div class="eyebrow">FAQ</div>
+                    <h2 class="section-title"><span>よくあるご質問</span></h2>
+                </div>
+                <div class="faq">
+                    <details class="faq-item">
+                        <summary><span class="q">Q.</span> 個別見学はどのくらい時間がかかりますか？</summary>
+                        <div class="a"><span class="a-label">A.</span> 約60〜90分です。ご都合に合わせて調整します。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="q">Q.</span> 進路相談はいつでもできますか？</summary>
+                        <div class="a"><span class="a-label">A.</span> 放課後や休み時間など、随時受け付けています。</div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span class="q">Q.</span> 部活動と勉強の両立は可能ですか？</summary>
+                        <div class="a"><span class="a-label">A.</span> 学習計画づくりからサポートし、無理のない両立を支援します。</div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="prefooter" class="prefooter">
+            <!-- 左パネル：募集要項 -->
+            <a class="pf-panel pf-left" href="#entry" aria-label="2025年度募集要項を見る">
+                <div class="pf-inner">
+                    <span class="pf-btn-ghost">個別相談会に申し込む</span>
+                </div>
+            </a>
+
+            <!-- 右パネル：公式サイト -->
+            <a class="pf-panel pf-right" href="https://www.example.com" target="_blank" rel="noopener"
+                aria-label="公式サイトを見る">
+                <div class="pf-inner">
+                    <span class="pf-btn-ghost">公式サイトを見る</span>
+                </div>
+            </a>
+        </section>
+
+
+    </main>
+
+    <footer id="contact" class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="assets/img/logo-mono.svg" alt="倉吉北高等学校" width="180" height="44" loading="lazy" />
+                <address>
+                    〒xxxx-xxxx 鳥取県倉吉市◯◯町1-2-3<br>
+                    TEL 000-000-0000 / FAX 000-000-0000
+                </address>
+            </div>
+            <div class="footer-links">
+                <h3 class="subhead">クイックリンク</h3>
+                <ul>
+                    <li><a href="#points">3つのポイント</a></li>
+                    <li><a href="#courses">コース紹介</a></li>
+                    <li><a href="#life">スクールライフ</a></li>
+                    <li><a href="#clubs">部活動</a></li>
+                    <li><a href="#faq">よくあるご質問</a></li>
+                </ul>
+            </div>
+            <div class="footer-cta">
+                <a class="btn btn-main" href="#entry">資料請求</a>
+                <a class="btn btn-accent" href="#visit">個別相談会</a>
+            </div>
+        </div>
+        <div class="container footer-copy">
+            <small>© Kurayoshi Kita High School</small>
+        </div>
+    </footer>
+
+    <nav class="side-rail" aria-label="固定案内">
+        <a class="rail-block rail-visit" href="#visit">
+            <svg class="rail-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 2v2M17 2v2M4 7h16M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <circle cx="16.5" cy="13.5" r="2.5" fill="currentColor" />
+            </svg>
+            <span class="rail-text">個別相談会</span>
+        </a>
+        <hr class="rail-sep" aria-hidden="true" />
+        <a class="rail-block rail-entry" href="#entry">
+            <svg class="rail-ico" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5V5.5z" fill="currentColor" />
+                <path d="M6.5 3A2.5 2.5 0 0 0 4 5.5V21.5" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+            <span class="rail-text">資料請求</span>
+        </a>
+    </nav>
+
+    <a href="#top" class="back-to-top" aria-label="ページトップへ戻る">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+    </a>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // スクロールでタイトル表示
+            const titles = document.querySelectorAll(".section-title");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                    }
+                });
+            });
+            titles.forEach(el => observer.observe(el));
+
+            // トップへ戻るボタン
+            const backToTopBtn = document.querySelector('.back-to-top');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.add('is-visible');
+                    } else {
+                        backToTopBtn.classList.remove('is-visible');
+                    }
+                });
+            }
+
+            // スクールライフスライダー
+            (function () {
+                const track = document.getElementById('lifeCinema');
+                if (!track) return;
+                const slides = Array.from(track.querySelectorAll('.cinema-slide'));
+                const prev = document.querySelector('.life-cinema .cinema-nav.prev');
+                const next = document.querySelector('.life-cinema .cinema-nav.next');
+                const dots = document.getElementById('lifeDots');
+                let idx = 0;
+                if (slides.length === 0) return;
+
+                slides.forEach((_, i) => {
+                    const li = document.createElement('li');
+                    li.role = 'button';
+                    li.tabIndex = 0;
+                    li.setAttribute('aria-label', `スライド ${i + 1}へ`);
+                    li.addEventListener('click', () => go(i));
+                    li.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(i); } });
+                    dots.appendChild(li);
+                });
+
+                function go(i) {
+                    idx = Math.max(0, Math.min(slides.length - 1, i));
+                    slides[idx].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                }
+                function update() {
+                    dots.querySelectorAll('li').forEach((el, i) => el.setAttribute('aria-current', i === idx ? 'true' : 'false'));
+                }
+                prev.addEventListener('click', () => go(idx - 1));
+                next.addEventListener('click', () => go(idx + 1));
+
+                const io = new IntersectionObserver((entries) => {
+                    entries.forEach(en => {
+                        if (en.isIntersecting) {
+                            const i = slides.indexOf(en.target);
+                            if (i >= 0) { idx = i; update(); }
+                        }
+                    });
+                }, { root: track, threshold: 0.6 });
+                slides.forEach(s => io.observe(s));
+                update();
+            })();
+
+            // 施設スライダー
+            (function () {
+                const track = document.getElementById('facilitiesTrack');
+                if (!track) return;
+                const slides = [...track.children];
+                if (slides.length <= 1) return;
+
+                const prevBtn = document.querySelector('#facilities .facilities-nav.prev');
+                const nextBtn = document.querySelector('#facilities .facilities-nav.next');
+
+                let currentIndex = 0;
+
+                function getSlideWidth() {
+                    const slide = track.querySelector('.facility-slide');
+                    const style = window.getComputedStyle(slide);
+                    return slide.offsetWidth + parseFloat(style.marginRight);
+                }
+
+                function updateButtons() {
+                    prevBtn.disabled = currentIndex === 0;
+                    nextBtn.disabled = currentIndex >= slides.length - Math.floor(track.clientWidth / getSlideWidth());
+                }
+
+                function goToSlide(index) {
+                    const offset = getSlideWidth() * index;
+                    track.scrollTo({ left: offset, behavior: 'smooth' });
+                    currentIndex = index;
+                    updateButtons();
+                }
+
+                nextBtn.addEventListener('click', () => {
+                    if (currentIndex < slides.length - 1) goToSlide(currentIndex + 1);
+                });
+                prevBtn.addEventListener('click', () => {
+                    if (currentIndex > 0) goToSlide(currentIndex - 1);
+                });
+
+                window.addEventListener('resize', () => {
+                    // Recalculate and go to current slide on resize to adjust position
+                    goToSlide(currentIndex);
+                });
+                updateButtons();
+            })();
+
+
+            // 部活動スライダー
+            document.querySelectorAll('.club-slider-wrap').forEach((wrap) => {
+                const slider = wrap.querySelector('.club-slider');
+                const prevBtn = wrap.querySelector('.club-prev');
+                const nextBtn = wrap.querySelector('.club-next');
+                if (!slider) return;
+
+                const calcStep = () => slider.clientWidth * 0.8;
+                const updateBtns = () => {
+                    const maxScroll = slider.scrollWidth - slider.clientWidth;
+                    prevBtn.disabled = slider.scrollLeft <= 1;
+                    nextBtn.disabled = slider.scrollLeft >= maxScroll - 1;
+                };
+                prevBtn.addEventListener('click', () => slider.scrollBy({ left: -calcStep(), behavior: 'smooth' }));
+                nextBtn.addEventListener('click', () => slider.scrollBy({ left: calcStep(), behavior: 'smooth' }));
+                slider.addEventListener('scroll', updateBtns, { passive: true });
+                window.addEventListener('resize', updateBtns);
+                updateBtns();
+            });
+
+            // Intersection Observer for point-row animations
+            const pointRows = document.querySelectorAll('.point-row');
+            const pointObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        pointObserver.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, {
+                threshold: 0.3 // Trigger when 30% of the element is visible
+            });
+            pointRows.forEach(row => pointObserver.observe(row));
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>倉吉北高等学校 LP ワイヤーフレーム（改善版）</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: monospace;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            font-size: 12px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+        
+        /* セクション共通 */
+        section {
+            padding: 20px;
+            border-bottom: 1px solid #000;
+            position: relative;
+        }
+        
+        .section-label {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: #000;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 10px;
+        }
+        
+        h2 {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            font-weight: normal;
+            border: 1px dashed #999;
+            padding: 10px;
+        }
+        
+        h3 {
+            margin: 15px 0 10px;
+            font-size: 12px;
+            font-weight: normal;
+            text-decoration: underline;
+        }
+        
+        /* ワイヤーフレーム要素 */
+        .wire-box {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 5px 0;
+            text-align: center;
+            background: #fff;
+        }
+        
+        .wire-image {
+            border: 1px solid #000;
+            background: repeating-linear-gradient(
+                45deg,
+                transparent,
+                transparent 10px,
+                #ccc 10px,
+                #ccc 11px
+            );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 10px;
+        }
+        
+        .btn-wire {
+            display: inline-block;
+            border: 2px solid #000;
+            padding: 8px 20px;
+            margin: 5px;
+            background: #fff;
+        }
+        
+        .btn-primary {
+            background: #000;
+            color: #fff;
+        }
+        
+        /* グリッドレイアウト */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .grid-6 {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        /* ① ファーストビュー */
+        .hero {
+            height: 400px;
+            border: 2px solid #000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .hero-title {
+            border: 1px dashed #000;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        
+        /* CTAの段階的設計 */
+        .cta-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cta-group span {
+            font-size: 10px;
+        }
+        
+        /* 数値ボックス */
+        .number-box {
+            border: 2px solid #000;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .number-large {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        
+        /* カード */
+        .card {
+            border: 1px solid #000;
+        }
+        
+        .card-image {
+            height: 100px;
+            border-bottom: 1px solid #000;
+        }
+        
+        .card-content {
+            padding: 10px;
+        }
+        
+        /* タイムライン */
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #000;
+            z-index: 0;
+        }
+        
+        .timeline-item {
+            background: #fff;
+            border: 2px solid #000;
+            padding: 10px;
+            z-index: 1;
+            position: relative;
+            text-align: center;
+            width: 80px;
+        }
+        
+        /* 実績バッジ */
+        .badge {
+            display: inline-block;
+            border: 1px solid #ff0000;
+            color: #ff0000;
+            padding: 2px 5px;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
+        /* Q&A */
+        .qa-item {
+            border: 1px solid #000;
+            margin-bottom: 5px;
+        }
+        
+        .qa-question {
+            padding: 10px;
+            background: #f0f0f0;
+            border-bottom: 1px solid #000;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        /* 動画プレースホルダー */
+        .video-placeholder {
+            border: 3px solid #000;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .play-button {
+            width: 60px;
+            height: 60px;
+            border: 3px solid #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .grid-3,
+            .grid-2,
+            .grid-4,
+            .grid-6 {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .timeline::before {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ① ファーストビュー -->
+        <section class="hero">
+            <span class="section-label">① ファーストビュー（HERO）</span>
+            <div class="wire-image" style="position: absolute; inset: 0; font-size: 20px; opacity: 0.5;">
+                [背景画像：授業・部活・笑顔の在校生]
+            </div>
+            <div style="position: relative; z-index: 1; width: 100%;">
+                <div class="hero-title">
+                    <div style="font-size: 24px; margin-bottom: 10px;">夢を持って未来へ、まっすぐ。</div>
+                    <div style="font-size: 14px;">倉吉北高校でかけがえのない青春を。</div>
+                </div>
+                <div class="cta-group">
+                    <button class="btn-wire btn-primary">オープンスクール予約</button>
+                    <button class="btn-wire">資料請求</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ② 学校の特徴サマリー -->
+        <section>
+            <span class="section-label">② 学校の特徴サマリー</span>
+            <h2>倉吉北高校の3つの魅力</h2>
+            <div class="grid-3">
+                <div class="wire-box">
+                    <div style="font-size: 20px; margin: 10px;">[アイコン]</div>
+                    <div style="font-weight: bold; margin: 10px 0;">進学も就職も、自分に合った進路サポート</div>
+                    <div>国公立・私立大合格／企業就職実績</div>
+                </div>
+                <div class="wire-box">
+                    <div style="font-size: 20px; margin: 10px;">[アイコン]</div>
+                    <div style="font-weight: bold; margin: 10px 0;">夢中になれる部活動と、仲間と過ごす3年間</div>
+                    <div>甲子園・全国大会の実績</div>
+                </div>
+                <div class="wire-box">
+                    <div style="font-size: 20px; margin: 10px;">[アイコン]</div>
+                    <div style="font-weight: bold; margin: 10px 0;">1人ひとりに寄り添う担任と支援体制</div>
+                    <div>0限授業・少人数制・先生との距離感</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ③ 数字で見る倉吉北（新規追加） -->
+        <section>
+            <span class="section-label">③ 数字で見る倉吉北高校</span>
+            <h2>数字で見る倉吉北高校</h2>
+            <div class="grid-6">
+                <div class="number-box">
+                    <div>全校生徒数</div>
+                    <div class="number-large">◯</div>
+                    <div>名</div>
+                </div>
+                <div class="number-box">
+                    <div>部活動加入率</div>
+                    <div class="number-large">◯</div>
+                    <div>%</div>
+                </div>
+                <div class="number-box">
+                    <div>大学進学率</div>
+                    <div class="number-large">◯</div>
+                    <div>%</div>
+                </div>
+                <div class="number-box">
+                    <div>就職内定率</div>
+                    <div class="number-large">◯</div>
+                    <div>%</div>
+                </div>
+                <div class="number-box">
+                    <div>創立</div>
+                    <div class="number-large">◯</div>
+                    <div>年</div>
+                </div>
+                <div class="number-box">
+                    <div>教員数</div>
+                    <div class="number-large">◯</div>
+                    <div>名</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ⑥ コース紹介（順序変更） -->
+        <section>
+            <span class="section-label">④ コース紹介</span>
+            <h2>あなたの夢に合わせて選べる3つのコース</h2>
+            <div class="grid-3">
+                <div class="card">
+                    <div class="wire-image card-image">[授業風景]</div>
+                    <div class="card-content">
+                        <strong>特別進学コース</strong>
+                        
+                        <ul style="text-align: left; font-size: 11px;">
+                            <li>0限授業実施</li>
+                            <li>個別指導充実</li>
+                            <li>国公立大学対応</li>
+                        </ul>
+                        <div class="wire-box" style="margin: 10px 0; background: #f0f0f0;">
+                            💬 「先生との距離が近い」
+                        </div>
+                        <button class="btn-wire" style="width: 100%;">詳細を見る</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="wire-image card-image">[授業風景]</div>
+                    <div class="card-content">
+                        <strong>総合コース</strong>
+                        
+                        <ul style="text-align: left; font-size: 11px;">
+                            <li>2年次から4系統選択</li>
+                            <li>進学/情報/福祉/スポーツ</li>
+                            <li>資格取得サポート</li>
+                        </ul>
+                        <div class="wire-box" style="margin: 10px 0; background: #f0f0f0;">
+                            💬 「自分の興味を深められる」
+                        </div>
+                        <button class="btn-wire" style="width: 100%;">詳細を見る</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="wire-image card-image">[実習風景]</div>
+                    <div class="card-content">
+                        <strong>調理科</strong>
+                      
+                        <ul style="text-align: left; font-size: 11px;">
+                            <li>卒業と同時に調理師免許取得</li>
+                            <li>辻調グループ提携</li>
+                            <li>レストラン実習</li>
+                        </ul>
+                        <div class="wire-box" style="margin: 10px 0; background: #f0f0f0;">
+                            💬 「プロの技術が身につく」
+                        </div>
+                        <button class="btn-wire" style="width: 100%;">詳細を見る</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ④ スクールライフ（順序変更） -->
+        <section>
+            <span class="section-label">⑤ スクールライフ</span>
+            <h2>充実の学校生活</h2>
+            
+            <h3>年間行事カレンダー</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div>4月</div>
+                    <div style="font-size: 10px;">入学式<br>バス遠足</div>
+                </div>
+                <div class="timeline-item">
+                    <div>5月</div>
+                    <div style="font-size: 10px;">県総体<br>県総音</div>
+                </div>
+                <div class="timeline-item">
+                    <div>6月</div>
+                    <div style="font-size: 10px;">北高祭</div>
+                </div>
+                <div class="timeline-item">
+                    <div>10月</div>
+                    <div style="font-size: 10px;">強歩大会</div>
+                </div>
+                <div class="timeline-item">
+                    <div>11月</div>
+                    <div style="font-size: 10px;">修学旅行</div>
+                </div>
+                <div class="timeline-item">
+                    <div>2月</div>
+                    <div style="font-size: 10px;">スキー研修</div>
+                </div>
+                <div class="timeline-item">
+                    <div>3月</div>
+                    <div style="font-size: 10px;">修学旅行</div>
+                </div>
+            </div>
+            
+            <h3>イベントギャラリー</h3>
+            <div class="grid-3">
+                <div class="wire-image" style="height: 150px;">[北高祭の様子]</div>
+                <div class="wire-image" style="height: 150px;">[修学旅行]</div>
+                <div class="wire-image" style="height: 150px;">[体育祭]</div>
+            </div>
+            
+            <h3>海外研修プログラム</h3>
+            <div class="grid-3">
+                <div class="wire-box">
+                    <strong>ハワイ研修</strong>
+                    <p>10日間</p>
+                    <p>語学研修＋文化交流</p>
+                </div>
+                <div class="wire-box">
+                    <strong>ニュージーランド留学</strong>
+                    <p>3か月</p>
+                    <p>ホームステイ体験</p>
+                </div>
+                <div class="wire-box">
+                    <strong>夏期短期留学</strong>
+                    <p>1〜4週間</p>
+                    <p>複数国から選択可能</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ⑤ 部活動紹介（グリッド表示に変更） -->
+        <section>
+            <span class="section-label">⑥ 部活動紹介</span>
+            <h2>全国レベルの部活動</h2>
+            
+            <h3>運動部 - 主な実績</h3>
+            <div class="grid-4">
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>野球部</div>
+                    <span class="badge">甲子園出場</span>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>柔道部</div>
+                    <span class="badge">全国大会</span>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>陸上部</div>
+                    <span class="badge">インターハイ</span>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>剣道部</div>
+                    <span class="badge">中国大会</span>
+                </div>
+            </div>
+            
+            <h3>文化部 - 主な実績</h3>
+            <div class="grid-4">
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>吹奏楽部</div>
+                    <span class="badge">金賞受賞</span>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>文芸部</div>
+                    <span class="badge">全国総文祭</span>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>書道部</div>
+                    <span class="badge">県展入選</span>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 80px;">[写真]</div>
+                    <div>調理クラブ</div>
+                    <span class="badge">コンクール</span>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn-wire">全ての部活動を見る</button>
+            </div>
+        </section>
+        
+        
+        
+        <!-- ⑦ 進路実績・卒業生の声 -->
+        <section>
+            <span class="section-label">⑦ 進路実績・卒業生の声</span>
+            <h2>確かな進路実績</h2>
+            <div class="grid-2">
+                <div>
+                    <h3>主な進学先（過去3年）</h3>
+                    <div class="wire-box">
+                        <strong>国公立大学</strong><br>
+                        大阪大学 / 鳥取大学 / 島根大学<br>
+                        <strong>私立大学</strong><br>
+                        早稲田大学 / 関西学院大学 / 立命館大学
+                    </div>
+                </div>
+                <div>
+                    <h3>主な就職先（過去3年）</h3>
+                    <div class="wire-box">
+                        <strong>公務員・公共</strong><br>
+                        鳥取県職員 / 倉吉市職員 / 日本郵便<br>
+                        <strong>民間企業</strong><br>
+                        JR西日本 / 花王 / マツダ / 地元優良企業多数
+                    </div>
+                </div>
+            </div>
+            
+            <h3>卒業生インタビュー</h3>
+            <div class="grid-3">
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 60px;">[写真]</div>
+                    <strong>鳥取大学医学部 在学</strong>
+                    <p>特進コース卒 Aさん</p>
+                    <p style="font-size: 10px;">「0限授業と個別指導で合格できました」</p>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 60px;">[写真]</div>
+                    <strong>日本郵便（株） 在職</strong>
+                    <p>総合コース卒 Bさん</p>
+                    <p style="font-size: 10px;">「部活と就活を両立できる環境でした」</p>
+                </div>
+                <div class="wire-box">
+                    <div class="wire-image" style="height: 60px;">[写真]</div>
+                    <strong>辻調理師専門学校 在学</strong>
+                    <p>調理科卒 Cさん</p>
+                    <p style="font-size: 10px;">「実習で学んだ技術が今も活きています」</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- ⑧ 施設・寮の紹介（独立セクション化） -->
+        <section>
+            <span class="section-label">⑧ 施設・寮の紹介</span>
+            <h2>充実の施設と安心の寮生活</h2>
+            
+            <h3>学習施設</h3>
+            <div class="grid-4">
+                <div class="wire-image" style="height: 100px;">[普通教室]</div>
+                <div class="wire-image" style="height: 100px;">[PC室]</div>
+                <div class="wire-image" style="height: 100px;">[図書館]</div>
+                <div class="wire-image" style="height: 100px;">[調理実習室]</div>
+            </div>
+            
+            <h3>寮施設（男子寮・女子寮完備）</h3>
+            
+            <div class="grid-3" style="margin-top: 15px;">
+                <div class="wire-image" style="height: 120px;">[部屋]</div>
+                <div class="wire-image" style="height: 120px;">[食堂]</div>
+                <div class="wire-image" style="height: 120px;">[浴場]</div>
+            </div>
+        </section>
+        
+        <!-- ⑩ オープンスクール・見学案内 -->
+        <section>
+            <span class="section-label">⑨ オープンスクール・見学案内</span>
+            <h2>オープンスクール開催</h2>
+            <p style="text-align: center; margin-bottom: 20px;">倉北を体験しよう！まずは見に来てください</p>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn-wire btn-primary" style="padding: 15px 40px; font-size: 14px;">
+                    オープンスクールに申し込む
+                </button>
+                <div style="margin-top: 10px; font-size: 10px;">
+                    ※定員になり次第締切 ※保護者同伴可
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px;">個別見学も随時受付中</h3>
+            <div class="wire-box">
+                平日の学校見学も可能です。部活動見学、寮見学、個別相談など、ご希望に応じて対応いたします。<br>
+                お電話にてお申し込みください。TEL: 0858-00-0000
+            </div>
+        </section>
+        
+        <!-- ⑪ よくある質問（Q&A） -->
+        <section>
+            <span class="section-label">⑩ よくある質問（Q&A）</span>
+            <h2>よくある質問</h2>
+            
+            <div class="qa-item">
+                <div class="qa-question">
+                    Q. 学費はどのくらいかかりますか？
+                    <span>▼</span>
+                </div>
+                <div style="padding: 10px; display: none;">
+                    A. 就学支援金制度により、世帯収入に応じて実質0円〜となります。詳細は事務室までお問い合わせください。
+                </div>
+            </div>
+            
+            <div class="qa-item">
+                <div class="qa-question">
+                    Q. 通学方法を教えてください
+                    <span>▼</span>
+                </div>
+                <div style="padding: 10px; display: none;">
+                    A. 倉吉駅から徒歩15分、自転車で5分です。遠方からの生徒向けに専用スクールバスも運行しています（要申込）。
+                </div>
+            </div>
+            
+            <div class="qa-item">
+                <div class="qa-question">
+                    Q. 部活動と勉強の両立はできますか？
+                    <span>▼</span>
+                </div>
+                <div style="padding: 10px; display: none;">
+                    A. 多くの生徒が両立しています。部活動は原則18:30までとし、その後の学習時間を確保。テスト前は部活動停止期間もあります。
+                </div>
+            </div>
+            
+            <div class="qa-item">
+                <div class="qa-question">
+                    Q. 寮はどんな人が入れますか？
+                    <span>▼</span>
+                </div>
+                <div style="padding: 10px; display: none;">
+                    A. 自宅からの通学が困難な生徒（概ね1時間以上）が対象です。男子寮40名、女子寮30名の定員があります。
+                </div>
+            </div>
+            
+            <div class="qa-item">
+                <div class="qa-question">
+                    Q. コース変更はできますか？
+                    <span>▼</span>
+                </div>
+                <div style="padding: 10px; display: none;">
+                    A. 総合コースは2年次に系統を選択します。特進コースと総合コース間の変更は、1年次末に成績等を考慮して可能な場合があります。
+                </div>
+            </div>
+            
+            <div class="qa-item">
+                <div class="qa-question">
+                    Q. アルバイトはできますか？
+                    <span>▼</span>
+                </div>
+                <div style="padding: 10px; display: none;">
+                    A. 原則禁止ですが、経済的理由がある場合は許可制で認めています。長期休暇中は届出制で可能です。
+                </div>
+            </div>
+            
+            <div class="qa-item">
+                <div class="qa-question">
+                    Q. スマートフォンの持ち込みは？
+                    <span>▼</span>
+                </div>
+                <div style="padding: 10px; display: none;">
+                    A. 持ち込み可能ですが、授業中は電源OFF、校内では指定場所でのみ使用可能です。
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn-wire">その他の質問はこちら</button>
+            </div>
+        </section>
+        
+        <!-- ⑫ フッター（情報ブロック） -->
+        <footer>
+            <section style="border: none; background: #f0f0f0;">
+                <span class="section-label">⑪ フッター（情報ブロック）</span>
+                <div class="grid-3" style="margin-top: 30px;">
+                    <div>
+                        <strong>倉吉北高等学校</strong>
+                        <div class="wire-image" style="height: 150px; margin-top: 10px;">
+                            [Google Map]<br>
+                            倉吉駅から徒歩15分
+                        </div>
+                        <button class="btn-wire" style="margin-top: 10px; width: 100%;">
+                            Googleマップで見る
+                        </button>
+                    </div>
+                    <div>
+                        <strong>学校情報</strong>
+                        <div style="margin-top: 10px; font-size: 11px; line-height: 1.8;">
+                            〒682-0018<br>
+                            鳥取県倉吉市福庭町１丁目１８０<br>
+                            TEL: 0858-26-1351<br>
+                            Email: ◯◯@◯◯<br>
+                        </div>
+                    </div>
+                    <div>
+                        <strong>Quick Links</strong>
+                        <ul style="list-style: none; margin-top: 10px; font-size: 11px; line-height: 1.8;">
+                            <li>→ 入試情報</li>
+                            <li>→ 部活動一覧</li>
+                            <li>→ 年間行事予定</li>
+                            <li>→ 制服紹介</li>
+                            <li>→ 進路実績詳細</li>
+                            <li>→ 在校生・保護者の方へ</li>
+                        </ul>
+                        <strong style="display: block; margin-top: 15px;">SNS</strong>
+                        <div style="display: flex; gap: 10px; margin: 10px 0;">
+                            <div class="wire-box" style="width: 40px; height: 40px;">[IG]</div>
+                            <div class="wire-box" style="width: 40px; height: 40px;">[X]</div>
+                            <div class="wire-box" style="width: 40px; height: 40px;">[YT]</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="border-top: 1px solid #000; margin-top: 30px; padding-top: 20px;">
+                    <div style="text-align: center;">
+                        <button class="btn-wire btn-primary" style="padding: 12px 30px; margin: 0 10px;">
+                            資料請求
+                        </button>
+                        <button class="btn-wire" style="padding: 12px 30px; margin: 0 10px;">
+                            お問い合わせ
+                        </button>
+                        <button class="btn-wire" style="padding: 12px 30px; margin: 0 10px;">
+                            学校見学予約
+                        </button>
+                    </div>
+                    <p style="text-align: center; margin-top: 20px; font-size: 10px;">
+                        © 2025 倉吉北高等学校 All Rights Reserved.
+                    </p>
+                </div>
+            </section>
+        </footer>
+    </div>
+</body>
+</html>
