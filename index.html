@@ -27,16 +27,27 @@
                 <a class="btn btn-accent" href="#visit">個別相談会</a>
             </nav>
         </div>
+
     </header>
 
     <main id="top">
 
         <section class="hero-split-bg" aria-label="ヒーロービジュアル">
-            <div class="hero-bg-split">
+            <!-- スマホ専用：縦長画像スライダー -->
+            <div class="fade-slider only-sp">
+                <div class="slide" style="background-image: url(assets/bg-left.jpg);"></div>
+                <div class="slide" style="background-image: url(assets/bg-center.jpg);"></div>
+                <div class="slide" style="background-image: url(assets/bg-right.jpg);"></div>
+            </div>
+
+            <!-- PC専用：3分割横並び -->
+            <div class="hero-bg-split only-pc">
                 <div class="bg-image bg-left"></div>
                 <div class="bg-image bg-center"></div>
                 <div class="bg-image bg-right"></div>
             </div>
+
+            <!-- 共通：ヒーローテキスト -->
             <div class="hero-content">
                 <div class="headline-wrap">
                     <h1>夢をもって未来に、まっすぐ。</h1>
@@ -48,12 +59,18 @@
             </div>
         </section>
 
+
+        <!-- ==== ABOUT ===== -->
         <section id="about" class="section alt about-hero" aria-label="学校の考え方（ABOUT）">
             <div class="container">
                 <div class="about-wrapper">
+
+                    <!-- PC/タブレット用：左の人物 -->
                     <figure class="about-figure about-figure-left">
                         <img src="assets/student_boy.png" alt="男子生徒" loading="lazy">
                     </figure>
+
+                    <!-- 中央テキスト（SPでは最上段） -->
                     <div class="about-center">
                         <span class="eyebrow about-eyebrow">ABOUT</span>
                         <p class="about-copy">
@@ -64,9 +81,22 @@
                         </p>
                         <a class="btn about-cta" href="#entry">資料請求をする</a>
                     </div>
+
+                    <!-- PC/タブレット用：右の人物 -->
                     <figure class="about-figure about-figure-right">
                         <img src="assets/student_girl.png" alt="女子生徒" loading="lazy">
                     </figure>
+
+                    <!-- モバイル専用：横並び画像行（PCは display:none） -->
+                    <div class="about-wrapper-images">
+                        <figure class="about-figure">
+                            <img src="assets/student_boy.png" alt="男子生徒" loading="lazy">
+                        </figure>
+                        <figure class="about-figure">
+                            <img src="assets/student_girl.png" alt="女子生徒" loading="lazy">
+                        </figure>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -204,22 +234,18 @@
         </section>
 
         <!-- ==== SCHOOL LIFE / Facilitiesと完全同一 ==== -->
-        <section id="life" class="section" aria-labelledby="life-heading">
+       <section id="life" class="section" aria-labelledby="life-heading">
             <div class="container">
                 <div class="section-head">
                     <div class="eyebrow">SCHOOL LIFE</div>
                     <h2 id="life-heading" class="section-title"><span>スクールライフ</span></h2>
                 </div>
 
-                <!-- 🔽 ここを container の “内側” に置く（施設と同じ構造） -->
                 <h3 class="subhead" id="life-calendar-sub">年間行事</h3>
                 <p class="note">4月から3月までの主な学校イベントを紹介します。</p>
-
                 <div class="facilities-slider" role="region" aria-labelledby="life-calendar-sub">
-
                     <button class="facilities-nav prev" aria-label="前へ" type="button">‹</button>
                     <button class="facilities-nav next" aria-label="次へ" type="button">›</button>
-
                     <div class="facilities-track" id="lifeTrack">
                         <figure class="facility-slide">
                             <img src="assets/04.jpg" alt="4月 入学式・バス遠足" loading="lazy">
@@ -251,42 +277,82 @@
                         </figure>
                     </div>
                 </div>
-                <!-- 🔼 ここまで container 内 -->
             </div>
 
-            <div class="container">
+            <div class="container" style="margin-top: var(--sp-6);">
                 <h3 class="subhead" id="life-gallery-sub">フォトギャラリー</h3>
                 <p class="note">学校生活の雰囲気が伝わるスナップ集。</p>
-                <div class="photo-mosaic" aria-label="イベントギャラリー">
-                    <figure><img src="assets/event01.jpg" alt="北高祭の様子" loading="lazy"></figure>
-                    <figure><img src="assets/event02.jpg" alt="修学旅行" loading="lazy"></figure>
-                    <figure><img src="assets/event03.png" alt="体育祭" loading="lazy"></figure>
-                    <figure><img src="assets/event04.png" alt="文化祭ステージ発表" loading="lazy"></figure>
-                    <figure><img src="assets/event05.png" alt="部活動発表会" loading="lazy"></figure>
-                    <figure><img src="assets/event06.png" alt="ボランティア活動" loading="lazy"></figure>
+            </div>
+            
+            <div class="perspective-carousel" aria-labelledby="life-gallery-sub">
+                <div class="carousel-track-container">
+                    <div class="carousel-track">
+                        <figure class="carousel-slide">
+                            <img src="assets/event01.jpg" alt="北高祭" loading="lazy">
+                        </figure>
+                        <figure class="carousel-slide">
+                            <img src="assets/event03.png" alt="体育祭" loading="lazy">
+                        </figure>
+                        <figure class="carousel-slide">
+                            <img src="assets/event02.jpg" alt="修学旅行" loading="lazy">
+                        </figure>
+                        <figure class="carousel-slide">
+                            <img src="assets/event04.png" alt="文化祭ステージ" loading="lazy">
+                        </figure>
+                        <figure class="carousel-slide">
+                            <img src="assets/event06.png" alt="ボランティア活動" loading="lazy">
+                        </figure>
+                        <figure class="carousel-slide">
+                            <img src="assets/event05.png" alt="部活動発表会" loading="lazy">
+                        </figure>
+                    </div>
                 </div>
+
+                <div class="carousel-nav">
+                    <button type="button" class="carousel-button prev" aria-label="前へ">‹</button>
+                    <div class="carousel-dots"></div>
+                    <button type="button" class="carousel-button next" aria-label="次へ">›</button>
+                </div>
+            </div>
+
+
+            <div class="container" style="margin-top: var(--sp-7);">
                 <h3 class="subhead" id="life-overseas-sub">海外研修プログラム</h3>
                 <p class="note">英語力と国際感覚を育む短期・中期の留学制度。</p>
 
-                <div class="life-programs" role="group" aria-labelledby="life-overseas-sub">
-                    <div class="program-grid">
+                <div class="overseas-grid" role="group" aria-labelledby="life-overseas-sub">
+                    <a href="#visit" class="overseas-card">
+                        <figure class="overseas-thumb">
+                            <img src="assets/hawaii.jpg" alt="ハワイ研修" loading="lazy" width="1280" height="720">
+                            <span class="overseas-badge">10日間</span>
+                        </figure>
+                        <div class="overseas-content">
+                            <h4 class="overseas-title">ハワイ研修</h4>
+                            <p class="overseas-desc">美しい景色の中で、語学研修と異文化交流を体験します。</p>
+                        </div>
+                    </a>
 
-                        <a class="program-card" href="#visit">
-                            <img src="assets/hawaii.jpg" alt="ハワイ研修" loading="lazy">
-                            <span class="program-badge">10日間</span>
-                            <div class="program-meta"><strong>ハワイ研修</strong><small>語学研修＋文化交流</small></div>
-                        </a>
-                        <a class="program-card" href="#visit">
-                            <img src="assets/nz.jpg" alt="ニュージーランド留学" loading="lazy">
-                            <span class="program-badge">3か月</span>
-                            <div class="program-meta"><strong>ニュージーランド留学</strong><small>ホームステイ体験</small></div>
-                        </a>
-                        <a class="program-card" href="#visit">
-                            <img src="assets/summer.jpg" alt="夏期短期留学" loading="lazy">
-                            <span class="program-badge">1〜4週間</span>
-                            <div class="program-meta"><strong>夏期短期留学</strong><small>複数国から選択可能</small></div>
-                        </a>
-                    </div>
+                    <a href="#visit" class="overseas-card">
+                        <figure class="overseas-thumb">
+                            <img src="assets/nz.jpg" alt="ニュージーランド留学" loading="lazy" width="1280" height="720">
+                            <span class="overseas-badge">3か月</span>
+                        </figure>
+                        <div class="overseas-content">
+                            <h4 class="overseas-title">ニュージーランド留学</h4>
+                            <p class="overseas-desc">ホームステイをしながら現地の高校に通い、実践的な英語を学びます。</p>
+                        </div>
+                    </a>
+
+                    <a href="#visit" class="overseas-card">
+                        <figure class="overseas-thumb">
+                            <img src="assets/summer.jpg" alt="夏期短期留学" loading="lazy" width="1280" height="720">
+                            <span class="overseas-badge">1〜4週間</span>
+                        </figure>
+                        <div class="overseas-content">
+                            <h4 class="overseas-title">夏期短期留学</h4>
+                            <p class="overseas-desc">夏休みを利用して、複数国から目的に合ったプログラムを選択できます。</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>
