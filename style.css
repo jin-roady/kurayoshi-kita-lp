@@ -3177,3 +3177,150 @@ section#about.about-hero::after {
     background-color: var(--primary);
     transform: scale(1.2);
 }
+
+/* =========================
+   ABOUT: 1000pxでレスポンシブ切替（最終上書き）
+   ※このブロックは style.css の一番最後に貼る
+========================= */
+
+/* 1000px以下は「テキスト→左右2画像」のモバイルレイアウトに統一 */
+@media (max-width:1000px) {
+  /* レイアウト */
+  #about .about-wrapper {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-areas:
+      "center center"
+      "left   right" !important;
+    row-gap: var(--sp-4);
+    column-gap: clamp(12px, 4vw, 24px);
+    justify-items: center;
+    align-items: end;
+  }
+
+  #about .about-center {
+    grid-area: center !important;
+    text-align: center !important;
+    padding: clamp(16px, 2.2vw, 24px) clamp(20px, 3vw, 34px) !important;
+  }
+
+  #about .about-figure-left {
+    grid-area: left !important;
+  }
+  #about .about-figure-right {
+    grid-area: right !important;
+  }
+
+  /* 画像サイズ */
+  #about .about-figure {
+    max-width: clamp(200px, 44vw, 360px) !important;
+    transform: none !important;
+  }
+
+  /* 既存の「640px以下で左右画像を非表示」の指定を打ち消し */
+  #about .about-wrapper > .about-figure-left,
+  #about .about-wrapper > .about-figure-right {
+    display: block !important;
+  }
+
+  /* 背景ワードは2行に（KURAYOSHI / KITA） */
+  section#about.about-hero::after {
+    content: "KURAYOSHI\A KITA" !important;
+    white-space: pre !important;
+    line-height: 1.05 !important;
+    bottom: 5% !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    text-align: start !important;
+    font-size: clamp(2.6rem, 20vw, 10rem) !important;
+    opacity: .08 !important;
+  }
+}
+
+/* 1000pxを超えたらPCレイアウト（3カラム系）を維持しつつ、画像は少し大きめ */
+@media (min-width:1001px) {
+  #about .about-wrapper {
+    grid-template-columns: minmax(220px, 1fr) minmax(560px, 780px) minmax(220px, 1fr) !important;
+    align-items: end !important;
+  }
+  #about .about-figure {
+    max-width: clamp(360px, 32vw, 560px) !important;
+  }
+  /* 背景ワードは1行表示に戻す */
+  section#about.about-hero::after {
+    content: "KURAYOSHIKITA" !important;
+    white-space: nowrap !important;
+    bottom: 6% !important;
+    left: 0 !important;
+    right: 0 !important;
+    top: auto !important;
+    transform: none !important;
+    text-align: start !important;
+    font-size: clamp(3rem, 22vw, 12rem) !important;
+    opacity: .08 !important;
+  }
+}
+/* =========================
+   ABOUT: 余計な画像を非表示 & 画面切れ防止
+   ※ style.css の最下部に貼る
+========================= */
+
+/* 1) 不要なモバイル用の複製ブロックを強制OFF */
+#about .about-wrapper-images { 
+  display: none !important; 
+}
+
+/* 2) 下部の横並び画像が切れないように幅管理 */
+@media (max-width:1000px) {
+  /* グリッドのカラムをはみ出さないように minmax(0,1fr) に */
+  #about .about-wrapper {
+    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
+    column-gap: clamp(12px, 4vw, 20px) !important;
+    overflow: visible; /* 影や丸角が切れないよう念のため */
+  }
+
+  /* 図版は“列の中で完結”させる */
+  #about .about-figure {
+    width: 100% !important;              /* 列幅内にフィット */
+    max-width: 520px !important;         /* 過度に大きくしない上限 */
+    margin: 0 auto !important;           /* 中央寄せ */
+    transform: none !important;          /* ずらし解除 */
+  }
+
+  #about .about-figure img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;             /* 縦が切れない */
+    object-fit: contain !important;      /* 必要なら全体表示 */
+  }
+
+  /* 背景ワードと被る場合の余白調整（軽め） */
+  #about .about-center {
+    margin-bottom: var(--sp-3) !important;
+  }
+}
+
+/* 3) PC側も安全網：画像のはみ出しを抑制 */
+@media (min-width:1001px) {
+  #about .about-figure,
+  #about .about-figure img {
+    max-width: 100% !important;
+  }
+}
+/* Heroキャッチコピーを1行で維持する調整 */
+.hero-content h1 {
+  font-size: clamp(1.4rem, 6vw, 4.2rem); /* 最小1.4remにして小画面でも収まるように */
+  white-space: nowrap; /* 折り返しを禁止 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 最悪は…で切れるように */
+  max-width: 100%;
+}
+
+/* モバイルではサイズをさらに小さくする */
+@media screen and (max-width: 768px) {
+  .hero-content h1 {
+    font-size: clamp(1.2rem, 5vw, 2.2rem); /* さらに小さい最小値に設定 */
+  }
+}
