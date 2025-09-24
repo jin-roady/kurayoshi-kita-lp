@@ -837,10 +837,13 @@ a.btn-wire:hover,
     scroll-behavior: smooth;
     display: flex;
     gap: clamp(12px, 2vw, 16px);
-    overflow-x: hidden; /* ← スクロールバーを非表示に */
+    overflow-x: hidden;
+    /* ← スクロールバーを非表示に */
     padding: 10px 2px;
-    scrollbar-width: none; /* Firefox用の設定 */
+    scrollbar-width: none;
+    /* Firefox用の設定 */
 }
+
 /* Chrome, Safari用の設定 */
 .club-slider::-webkit-scrollbar {
     display: none;
@@ -3047,7 +3050,7 @@ section#about.about-hero::after {
     font-weight: 700;
     padding: .3em .8em;
     border-radius: 999px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .overseas-content {
@@ -3086,7 +3089,8 @@ section#about.about-hero::after {
 .carousel-track-container {
     position: relative;
     padding: var(--sp-4) 0;
-    height: 320px; /* 高さを確保してレイアウトの安定化 */
+    height: 320px;
+    /* 高さを確保してレイアウトの安定化 */
 }
 
 .carousel-track {
@@ -3104,9 +3108,10 @@ section#about.about-hero::after {
     margin: 0 var(--sp-2);
     flex-shrink: 0;
     border-radius: var(--radius);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    position: relative; /* z-indexを有効にするため */
+    position: relative;
+    /* z-indexを有効にするため */
     background: #eee;
     transition: transform 0.6s ease, opacity 0.5s ease;
     cursor: pointer;
@@ -3125,15 +3130,16 @@ section#about.about-hero::after {
     left: 0;
     width: 100%;
     padding: 14px;
-    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     color: #fff;
     text-align: center;
 }
+
 .carousel-caption h3 {
     font-size: 1.1rem;
     font-weight: 700;
     margin: 0;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
 /* Navigation UI */
@@ -3144,25 +3150,29 @@ section#about.about-hero::after {
     gap: 20px;
     margin-top: var(--sp-3);
 }
+
 .carousel-button {
     width: 44px;
     height: 44px;
     border-radius: 50%;
     background: #fff;
     border: 1px solid #ddd;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     font-size: 24px;
     color: var(--color-text);
     cursor: pointer;
     transition: transform 0.2s ease;
 }
+
 .carousel-button:hover {
     transform: scale(1.1);
 }
+
 .carousel-dots {
     display: flex;
     gap: 8px;
 }
+
 .carousel-dots button {
     width: 10px;
     height: 10px;
@@ -3173,6 +3183,7 @@ section#about.about-hero::after {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
 .carousel-dots button.is-active {
     background-color: var(--primary);
     transform: scale(1.2);
@@ -3185,142 +3196,1992 @@ section#about.about-hero::after {
 
 /* 1000px以下は「テキスト→左右2画像」のモバイルレイアウトに統一 */
 @media (max-width:1000px) {
-  /* レイアウト */
-  #about .about-wrapper {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-areas:
-      "center center"
-      "left   right" !important;
-    row-gap: var(--sp-4);
-    column-gap: clamp(12px, 4vw, 24px);
-    justify-items: center;
-    align-items: end;
-  }
 
-  #about .about-center {
-    grid-area: center !important;
-    text-align: center !important;
-    padding: clamp(16px, 2.2vw, 24px) clamp(20px, 3vw, 34px) !important;
-  }
+    /* レイアウト */
+    #about .about-wrapper {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        grid-template-areas:
+            "center center"
+            "left   right" !important;
+        row-gap: var(--sp-4);
+        column-gap: clamp(12px, 4vw, 24px);
+        justify-items: center;
+        align-items: end;
+    }
 
-  #about .about-figure-left {
-    grid-area: left !important;
-  }
-  #about .about-figure-right {
-    grid-area: right !important;
-  }
+    #about .about-center {
+        grid-area: center !important;
+        text-align: center !important;
+        padding: clamp(16px, 2.2vw, 24px) clamp(20px, 3vw, 34px) !important;
+    }
 
-  /* 画像サイズ */
-  #about .about-figure {
-    max-width: clamp(200px, 44vw, 360px) !important;
-    transform: none !important;
-  }
+    #about .about-figure-left {
+        grid-area: left !important;
+    }
 
-  /* 既存の「640px以下で左右画像を非表示」の指定を打ち消し */
-  #about .about-wrapper > .about-figure-left,
-  #about .about-wrapper > .about-figure-right {
-    display: block !important;
-  }
+    #about .about-figure-right {
+        grid-area: right !important;
+    }
 
-  /* 背景ワードは2行に（KURAYOSHI / KITA） */
-  section#about.about-hero::after {
-    content: "KURAYOSHI\A KITA" !important;
-    white-space: pre !important;
-    line-height: 1.05 !important;
-    bottom: 5% !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: auto !important;
-    transform: none !important;
-    text-align: start !important;
-    font-size: clamp(2.6rem, 20vw, 10rem) !important;
-    opacity: .08 !important;
-  }
+    /* 画像サイズ */
+    #about .about-figure {
+        max-width: clamp(200px, 44vw, 360px) !important;
+        transform: none !important;
+    }
+
+    /* 既存の「640px以下で左右画像を非表示」の指定を打ち消し */
+    #about .about-wrapper>.about-figure-left,
+    #about .about-wrapper>.about-figure-right {
+        display: block !important;
+    }
+
+    /* 背景ワードは2行に（KURAYOSHI / KITA） */
+    section#about.about-hero::after {
+        content: "KURAYOSHI\A KITA" !important;
+        white-space: pre !important;
+        line-height: 1.05 !important;
+        bottom: 5% !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        transform: none !important;
+        text-align: start !important;
+        font-size: clamp(2.6rem, 20vw, 10rem) !important;
+        opacity: .08 !important;
+    }
 }
 
 /* 1000pxを超えたらPCレイアウト（3カラム系）を維持しつつ、画像は少し大きめ */
 @media (min-width:1001px) {
-  #about .about-wrapper {
-    grid-template-columns: minmax(220px, 1fr) minmax(560px, 780px) minmax(220px, 1fr) !important;
-    align-items: end !important;
-  }
-  #about .about-figure {
-    max-width: clamp(360px, 32vw, 560px) !important;
-  }
-  /* 背景ワードは1行表示に戻す */
-  section#about.about-hero::after {
-    content: "KURAYOSHIKITA" !important;
-    white-space: nowrap !important;
-    bottom: 6% !important;
-    left: 0 !important;
-    right: 0 !important;
-    top: auto !important;
-    transform: none !important;
-    text-align: start !important;
-    font-size: clamp(3rem, 22vw, 12rem) !important;
-    opacity: .08 !important;
-  }
+    #about .about-wrapper {
+        grid-template-columns: minmax(220px, 1fr) minmax(560px, 780px) minmax(220px, 1fr) !important;
+        align-items: end !important;
+    }
+
+    #about .about-figure {
+        max-width: clamp(360px, 32vw, 560px) !important;
+    }
+
+    /* 背景ワードは1行表示に戻す */
+    section#about.about-hero::after {
+        content: "KURAYOSHIKITA" !important;
+        white-space: nowrap !important;
+        bottom: 6% !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto !important;
+        transform: none !important;
+        text-align: start !important;
+        font-size: clamp(3rem, 22vw, 12rem) !important;
+        opacity: .08 !important;
+    }
 }
+
 /* =========================
    ABOUT: 余計な画像を非表示 & 画面切れ防止
    ※ style.css の最下部に貼る
 ========================= */
 
 /* 1) 不要なモバイル用の複製ブロックを強制OFF */
-#about .about-wrapper-images { 
-  display: none !important; 
+#about .about-wrapper-images {
+    display: none !important;
 }
 
 /* 2) 下部の横並び画像が切れないように幅管理 */
 @media (max-width:1000px) {
-  /* グリッドのカラムをはみ出さないように minmax(0,1fr) に */
-  #about .about-wrapper {
-    grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important;
-    column-gap: clamp(12px, 4vw, 20px) !important;
-    overflow: visible; /* 影や丸角が切れないよう念のため */
-  }
 
-  /* 図版は“列の中で完結”させる */
-  #about .about-figure {
-    width: 100% !important;              /* 列幅内にフィット */
-    max-width: 520px !important;         /* 過度に大きくしない上限 */
-    margin: 0 auto !important;           /* 中央寄せ */
-    transform: none !important;          /* ずらし解除 */
-  }
+    /* グリッドのカラムをはみ出さないように minmax(0,1fr) に */
+    #about .about-wrapper {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+        column-gap: clamp(12px, 4vw, 20px) !important;
+        overflow: visible;
+        /* 影や丸角が切れないよう念のため */
+    }
 
-  #about .about-figure img {
-    display: block !important;
-    width: 100% !important;
-    height: auto !important;             /* 縦が切れない */
-    object-fit: contain !important;      /* 必要なら全体表示 */
-  }
+    /* 図版は“列の中で完結”させる */
+    #about .about-figure {
+        width: 100% !important;
+        /* 列幅内にフィット */
+        max-width: 520px !important;
+        /* 過度に大きくしない上限 */
+        margin: 0 auto !important;
+        /* 中央寄せ */
+        transform: none !important;
+        /* ずらし解除 */
+    }
 
-  /* 背景ワードと被る場合の余白調整（軽め） */
-  #about .about-center {
-    margin-bottom: var(--sp-3) !important;
-  }
+    #about .about-figure img {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        /* 縦が切れない */
+        object-fit: contain !important;
+        /* 必要なら全体表示 */
+    }
+
+    /* 背景ワードと被る場合の余白調整（軽め） */
+    #about .about-center {
+        margin-bottom: var(--sp-3) !important;
+    }
 }
 
 /* 3) PC側も安全網：画像のはみ出しを抑制 */
 @media (min-width:1001px) {
-  #about .about-figure,
-  #about .about-figure img {
-    max-width: 100% !important;
-  }
+
+    #about .about-figure,
+    #about .about-figure img {
+        max-width: 100% !important;
+    }
 }
+
 /* Heroキャッチコピーを1行で維持する調整 */
 .hero-content h1 {
-  font-size: clamp(1.4rem, 6vw, 4.2rem); /* 最小1.4remにして小画面でも収まるように */
-  white-space: nowrap; /* 折り返しを禁止 */
-  overflow: hidden;
-  text-overflow: ellipsis; /* 最悪は…で切れるように */
-  max-width: 100%;
+    font-size: clamp(1.4rem, 6vw, 4.2rem);
+    /* 最小1.4remにして小画面でも収まるように */
+    white-space: nowrap;
+    /* 折り返しを禁止 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* 最悪は…で切れるように */
+    max-width: 100%;
 }
 
 /* モバイルではサイズをさらに小さくする */
 @media screen and (max-width: 768px) {
-  .hero-content h1 {
-    font-size: clamp(1.2rem, 5vw, 2.2rem); /* さらに小さい最小値に設定 */
+    .hero-content h1 {
+        font-size: clamp(1.2rem, 5vw, 2.2rem);
+        /* さらに小さい最小値に設定 */
+    }
+}
+
+.club-slider {
+    cursor: grab;
+    user-select: none;
+}
+
+.club-slider:active {
+    cursor: grabbing;
+}
+
+/* カード&リンクを前面でイベント取得 */
+.club-slider {
+    position: relative;
+}
+
+.club-card {
+    position: relative;
+    z-index: 0;
+}
+
+.club-card a {
+    display: block;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 矢印ボタンは前面だが、カード上に不要に被らない位置/サイズに */
+.club-nav {
+    z-index: 3;
+}
+
+/* 画像のドラッグでクリックが阻害されないように */
+.club-thumb img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* タッチの既定の横パンを抑え、縦スクロールは許可（自前で横ドラッグ処理するため） */
+.club-slider {
+    touch-action: pan-y;
+}
+
+/* スライダー一式を局所的に最前面へ（周辺の固定UIや装飾が被る事故防止） */
+.club-slider-wrap {
+    position: relative;
+    z-index: 50;
+}
+
+/* カード内リンクは常にクリック可能（上位が pointer-events: none; でも通す） */
+.club-card a {
+    position: relative;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+/* 矢印はさらに上（被りにくくする） */
+.club-nav {
+    z-index: 60;
+}
+
+/* 念のため：このセクション配下では装飾の当たり判定を切る */
+.club-slider-wrap::before,
+.club-slider-wrap::after {
+    pointer-events: none;
+}
+
+/* =========================================================
+   Outcomes Section ONLY - Enhanced Visibility & Design
+========================================================= */
+
+/* 確かな進路実績セクションの背景をより明るく */
+#outcomes {
+    background: linear-gradient(135deg, #F8F6FF 0%, #FFFFFF 100%);
+    position: relative;
+}
+
+#outcomes::before {
+    opacity: .2;
+    background: radial-gradient(circle at 1px 1px, rgba(123, 112, 176, .08) 1px, transparent 0) 0 0/14px 14px;
+}
+
+/* 実績ボックスの改善 */
+#outcomes .outcome-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(20px, 3vw, 32px);
+    margin-bottom: var(--sp-6);
+}
+
+#outcomes .outcome-box {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAFBFF 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 12px 32px rgba(123, 112, 176, .08),
+        0 4px 12px rgba(0, 0, 0, .06);
+    padding: clamp(24px, 3.5vw, 32px);
+    border: 1px solid rgba(123, 112, 176, .12);
+    position: relative;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+
+#outcomes .outcome-box:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 16px 40px rgba(123, 112, 176, .12),
+        0 8px 20px rgba(0, 0, 0, .08);
+}
+
+/* アクセントカラーでボーダーライン */
+#outcomes .outcome-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #7c70b0, #b68ec4);
+    border-radius: 20px 20px 0 0;
+}
+
+#outcomes .outcome-box .label {
+    font-size: clamp(1.1rem, 2vw, 1.25rem);
+    font-weight: 900;
+    color: #4A4A4A;
+    margin-bottom: 16px;
+    letter-spacing: .02em;
+    position: relative;
+    padding-left: 32px;
+}
+
+/* アイコン風装飾 */
+#outcomes .outcome-box .label::before {
+    content: "📚";
+    position: absolute;
+    left: 0;
+    font-size: 1.2em;
+    filter: hue-rotate(200deg);
+}
+
+#outcomes .outcome-box:last-child .label::before {
+    content: "💼";
+    filter: hue-rotate(50deg);
+}
+
+#outcomes .outcome-box strong {
+    display: block;
+    font-weight: 900;
+    color: #2D2D2D;
+    margin: 12px 0 8px;
+    font-size: 1.05rem;
+    padding: 8px 12px;
+    background: linear-gradient(90deg, #F0F4FF, #FAFBFF);
+    border-radius: 8px;
+    border-left: 3px solid #7c70b0;
+}
+
+#outcomes .outcome-box p {
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+/* 卒業生インタビューカードの改善 */
+#outcomes .subhead {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 900;
+    color: #2D2D2D;
+    text-align: center;
+    margin: var(--sp-6) 0 var(--sp-4);
+    position: relative;
+}
+
+#outcomes .subhead::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #7c70b0, #b68ec4);
+    border-radius: 999px;
+}
+
+#outcomes .interview-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: clamp(18px, 2.5vw, 28px);
+}
+
+#outcomes .interview-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 
+        0 10px 28px rgba(123, 112, 176, .06),
+        0 4px 12px rgba(0, 0, 0, .04);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(123, 112, 176, .08);
+    transition: transform .3s ease, box-shadow .3s ease;
+    position: relative;
+}
+
+#outcomes .interview-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        0 16px 36px rgba(123, 112, 176, .10),
+        0 8px 20px rgba(0, 0, 0, .06);
+}
+
+#outcomes .interview-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #62a2af, #f4a72c, #e26b5a);
+}
+
+#outcomes .interview-image {
+    height: 160px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #F8F6FF, #E8E4F8);
+    position: relative;
+}
+
+#outcomes .interview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+#outcomes .interview-card:hover .interview-image img {
+    transform: scale(1.05);
+}
+
+#outcomes .interview-body {
+    padding: clamp(16px, 2.5vw, 20px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#outcomes .interview-title {
+    font-weight: 900;
+    color: #2D2D2D;
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+
+#outcomes .interview-name {
+    font-size: .92rem;
+    color: #7c70b0;
+    font-weight: 700;
+    letter-spacing: .02em;
+}
+
+#outcomes .interview-quote {
+    font-size: .95rem;
+    color: #555;
+    line-height: 1.6;
+    font-style: italic;
+    position: relative;
+    padding: 12px 16px;
+    background: #F8F9FF;
+    border-radius: 12px;
+    border-left: 3px solid #7c70b0;
+    margin-top: auto;
+}
+
+#outcomes .interview-quote::before {
+    content: "\201C";
+    position: absolute;
+    top: -2px;
+    left: 8px;
+    font-size: 2rem;
+    color: #7c70b0;
+    opacity: .3;
+    font-family: serif;
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 960px) {
+    #outcomes .outcome-boxes {
+        grid-template-columns: 1fr;
+        gap: clamp(16px, 3vw, 24px);
+    }
+    
+    #outcomes .interview-cards {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: clamp(16px, 2vw, 20px);
+    }
+}
+
+@media (max-width: 640px) {
+    #outcomes .interview-cards {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    #outcomes .outcome-box .label {
+        padding-left: 28px;
+    }
+    
+    #outcomes .outcome-box .label::before {
+        font-size: 1.1em;
+    }
+}
+
+/* セクションタイトルの色調整 */
+#outcomes .section-title span {
+    background: linear-gradient(135deg, #7c70b0 0%, #9a8bc8 100%);
+    box-shadow: 0 8px 24px rgba(124, 112, 176, .25);
+}
+
+/* アニメーション効果 */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#outcomes .outcome-box,
+#outcomes .interview-card {
+    animation: slideInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+#outcomes .outcome-box:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+#outcomes .interview-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+#outcomes .interview-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* 高コントラスト対応 */
+@media (prefers-contrast: high) {
+    #outcomes .outcome-box,
+    #outcomes .interview-card {
+        border-width: 2px;
+        border-color: #333;
+    }
+    
+    #outcomes .outcome-box strong,
+    #outcomes .interview-title {
+        color: #000;
+    }
+    
+    #outcomes .interview-quote {
+        background: #f0f0f0;
+        border-left-width: 4px;
+        border-left-color: #000;
+    }
+}
+
+/* 低モーション設定対応 */
+@media (prefers-reduced-motion: reduce) {
+    #outcomes .outcome-box,
+    #outcomes .interview-card,
+    #outcomes .interview-image img {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    #outcomes .outcome-box:hover,
+    #outcomes .interview-card:hover {
+        transform: none;
+    }
+}
+
+/* Course Layout - Consistent with site design */
+.courses-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(20px, 3vw, 32px);
+    margin-top: var(--sp-4);
+}
+
+/* Course Cards - Following site's card pattern */
+.course-card {
+    background: var(--color-surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid rgba(0, 0, 0, .06);
+    transition: transform .15s ease, box-shadow .15s ease;
+    height: 100%;
+}
+
+.course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, .12);
+}
+
+/* Accent Colors - Consistent with existing courseCard styling */
+.course-card.accent-blue {
+    border-color: rgba(98, 162, 175, .28);
+}
+
+.course-card.accent-coral {
+    border-color: rgba(226, 107, 90, .28);
+}
+
+.course-card.accent-purple {
+    border-color: rgba(182, 142, 196, .28);
+}
+
+/* Visual Section */
+.course-visual {
+    flex: 0 0 auto;
+}
+
+.card-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #f4f4f4;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.course-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+/* Content Area */
+.card-content {
+    padding: clamp(20px, 3vw, 24px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+    flex: 1;
+}
+
+.course-title {
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    font-weight: 900;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.3;
+}
+
+.course-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 0;
+}
+
+/* Course Points - Consistent with existing design */
+.course-points {
+    padding-left: 1.1em;
+    display: grid;
+    gap: .25em;
+    font-size: .95rem;
+    margin: 0;
+}
+
+.course-points li {
+    list-style: disc;
+    line-height: 1.5;
+    color: var(--color-text);
+}
+
+/* Voice Box - Consistent with existing voice-box */
+.voice-box {
+    background: #f6f6f6;
+    border: 1px dashed rgba(0, 0, 0, .15);
+    border-radius: 12px;
+    padding: .6em .8em;
+    font-weight: 700;
+    color: #444;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+/* Graduate Voice Section */
+.graduate-voice {
+    margin-top: var(--sp-3);
+    padding: var(--sp-3);
+    background: rgba(0, 0, 0, .02);
+    border: 1px solid rgba(0, 0, 0, .06);
+    border-radius: 12px;
+}
+
+.graduate-header h4 {
+    margin: 0 0 var(--sp-2);
+    font-size: 1rem;
+    font-weight: 700;
+    color: #555;
+}
+
+.graduate-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: var(--sp-2);
+}
+
+.graduate-info {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+.graduate-image {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: #f0f0f0;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+.graduate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.graduate-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.graduate-name {
+    font-weight: 700;
+    color: #333;
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+}
+
+.graduate-dest {
+    font-size: 0.8rem;
+    color: #666;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.graduate-comment {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #555;
+    margin: 0;
+}
+
+/* Button - Using existing btn-wire styling */
+.btn-wire {
+    margin-top: auto;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 960px) {
+    .courses-layout {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: clamp(16px, 3vw, 24px);
+    }
+}
+
+@media (max-width: 640px) {
+    .courses-layout {
+        grid-template-columns: 1fr;
+        gap: var(--sp-4);
+    }
+    
+    .graduate-info {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .graduate-image {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+/* Accessibility */
+.course-card:focus-within {
+    outline: 2px solid var(--accent1);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .course-card,
+    .card-image img {
+        transition: none !important;
+    }
+}
+
+/* ================================
+   COURSES – Vertical + Decorative
+================================ */
+
+/* 縦積み全体間隔（既存トークン流用） */
+.courses-layout {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(22px, 3.5vw, 36px);
   }
+  
+  /* ベースカード */
+  .course-card {
+    position: relative;
+    background: var(--color-surface);
+    border-radius: 18px;
+    overflow: clip;
+    /* 淡いグラデの境界線（視覚的リッチ感） */
+    border: 1px solid rgba(0,0,0,.06);
+    box-shadow: var(--shadow);
+    isolation: isolate;
+    /* アニメ準備 */
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  
+  /* アクセント色別の薄い縁（既存アクセントを流用） */
+  .course-card.accent-blue { outline: 4px solid rgb(98 162 175 / 10%); }
+  .course-card.accent-coral { outline: 4px solid rgb(226 107 90 / 10%); }
+  .course-card.accent-purple { outline: 4px solid rgb(182 142 196 / 10%); }
+  
+  /* リボン */
+  .course-ribbon {
+    position: absolute;
+    top: 14px;
+    left: -8px;
+    z-index: 2;
+    display: inline-block;
+    padding: .38em .9em;
+    font-weight: 900;
+    font-size: .82rem;
+    letter-spacing: .03em;
+    color: #fff;
+    background:
+      linear-gradient(135deg, rgba(0,0,0,.18), rgba(0,0,0,0)) border-box,
+      var(--accent1);
+    border-radius: 0 999px 999px 0;
+    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+  }
+  .course-card.accent-coral .course-ribbon { background:
+    linear-gradient(135deg, rgba(0,0,0,.18), rgba(0,0,0,0)) border-box,
+    var(--accent2); }
+  .course-card.accent-purple .course-ribbon { background:
+    linear-gradient(135deg, rgba(0,0,0,.18), rgba(0,0,0,0)) border-box,
+    var(--accent3); }
+  
+  /* シェル（画像＋本文エリア） */
+  .course-shell {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  
+  /* 画像 */
+  .course-card .card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #f4f4f4;
+  }
+  .course-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.055);
+    transition: transform .45s ease;
+  }
+  .course-card:hover .card-image img {
+    transform: scale(1.08);
+  }
+  
+  /* コンテンツ */
+  .course-card .card-content {
+    padding: clamp(16px, 2.4vw, 26px);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1.6vw, 16px);
+  }
+  
+  /* 見出し周り */
+  .card-head {
+    display: grid;
+    gap: .4em;
+  }
+  .card-head .kicker {
+    display: inline-block;
+    font-weight: 900;
+    letter-spacing: .08em;
+    font-size: .8rem;
+    color: #666;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 999px;
+    padding: .25em .7em;
+    width: fit-content;
+  }
+  .card-head .course-title {
+    font-size: clamp(1.26rem, 1.05rem + .8vw, 1.6rem);
+  }
+  
+  /* メタ情報のチップ */
+  .meta-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 2px;
+    padding: 0;
+    list-style: none;
+  }
+  .meta-chips li {
+    font-weight: 800;
+    font-size: .86rem;
+    color: #2b2b2b;
+    background: #fff;
+    border: 1px solid #e7e7e7;
+    border-radius: 999px;
+    padding: .35em .7em;
+    box-shadow: 0 2px 6px rgba(0,0,0,.05);
+  }
+  
+  /* 箇条書き（SVGアイコン風の丸） */
+  .icon-bullets {
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: .35em;
+    list-style: none;
+  }
+  .icon-bullets li {
+    position: relative;
+    padding-left: 1.4em;
+    line-height: 1.6;
+    list-style: none;
+  }
+  .icon-bullets li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: .55em;
+    width: .8em;
+    height: .8em;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #fff 0 30%, transparent 31%),
+                var(--accent1);
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.75),
+                0 2px 8px rgba(0,0,0,.12);
+  }
+  .course-card.accent-coral .icon-bullets li::before { background:
+    radial-gradient(circle at 30% 30%, #fff 0 30%, transparent 31%),
+    var(--accent2); }
+  .course-card.accent-purple .icon-bullets li::before { background:
+    radial-gradient(circle at 30% 30%, #fff 0 30%, transparent 31%),
+    var(--accent3); }
+  
+  /* 卒業生ボックスの軽い強調（既存voice-boxと親和） */
+  .graduate-voice {
+    margin-top: .4rem;
+    background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+    border: 1px solid #eee;
+    border-radius: 14px;
+    padding: .8em;
+  }
+  .graduate-header h4 {
+    margin: 0 0 .4em;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+  .graduate-info {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    align-items: center;
+  }
+  .graduate-image img {
+    width: 64px; height: 64px; object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,.1);
+  }
+  .graduate-name { font-weight: 900; }
+  .graduate-dest { font-size: .9rem; color: #666; }
+  
+  /* 交互レイアウト（PC幅で左右切替） */
+  @media (min-width: 960px) {
+    .course-shell {
+      grid-template-columns: 46% 54%;
+      align-items: center;
+    }
+    .course-card.is-alt .course-shell {
+      grid-template-columns: 54% 46%;
+    }
+    .course-card.is-alt .card-image {
+      order: 2;
+    }
+    .course-card.is-alt .card-content {
+      order: 1;
+    }
+  }
+  
+  /* ホバー・浮き上がり */
+  .course-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0) 50%, rgba(0,0,0,.03) 100%);
+    opacity: 0;
+    transition: opacity .25s ease;
+  }
+  .course-card:hover::after { opacity: 1; }
+  .course-card:hover { box-shadow: 0 12px 26px rgba(0,0,0,.12); transform: translateY(-2px); }
+  
+  /* ===== Appear animation（JSで .is-visible を付与） ===== */
+  .reveal-up { transition: opacity .6s ease, transform .6s ease; }
+  .reveal-up.is-visible { opacity: 1; transform: translateY(0); }
+/* ================================
+   Reveal-up (cards / sections)
+================================ */
+.reveal-up {
+    opacity: 0;
+    transform: translateY(10px);
+    will-change: opacity, transform;
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .reveal-up.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* 動きを苦手とするユーザー配慮 */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-up {
+      transition: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  /* ▼（任意）コースカードの見栄えを少しだけ底上げ */
+  .course-card {
+    transition: box-shadow .25s ease, transform .25s ease;
+  }
+  .course-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0,0,0,.12);
+  }
+/* --- 画像まわりの余白と埋め込みを是正 --- */
+
+/* figure のデフォルト余白をリセット（これだけで上の空白が消えるケースが多い） */
+.course-card .card-image {
+    margin: 0;                 /* ←重要 */
+    width: 100%;
+    aspect-ratio: 16/9;        /* SPは従来どおり16:9 */
+    overflow: hidden;
+    background: #f4f4f4;
+  }
+  
+  /* 画像を常にフルカバー */
+  .course-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 40%;  /* 顔が上寄せにある写真の見切れを軽減 */
+    transform: scale(1.055);
+    transition: transform .45s ease;
+  }
+  
+  .course-card:hover .card-image img {
+    transform: scale(1.08);
+  }
+  
+  /* PCレイアウト：画像を“上寄せ”に。縦センタリングによる上部の空白を解消 */
+  @media (min-width: 960px) {
+    .course-shell {
+      grid-template-columns: 46% 54%;
+      align-items: start;       /* ← center だと上下に空きが出るので start に */
+    }
+  
+    /* 画像は縦をコンテンツに合わせて伸縮。比率固定を解除して“埋める” */
+    .course-card .card-image {
+      aspect-ratio: auto;      /* ←比率固定を解除 */
+      height: 100%;            /* コンテンツと同じ高さまで伸長 */
+      min-height: 320px;       /* 写真が小さくなりすぎない下限 */
+      align-self: start;       /* 自身も上揃え */
+    }
+  
+    /* 交互レイアウト（2枚目など .is-alt）も同様に上揃え */
+    .course-card.is-alt .course-shell {
+      grid-template-columns: 54% 46%;
+    }
+    .course-card.is-alt .card-image { order: 2; }
+    .course-card.is-alt .card-content { order: 1; }
+  }
+  
+  /* 万一、親要素の line-height や margin が影響している場合の保険 */
+  .course-card .card-content,
+  .course-card .card-image {
+    line-height: normal;
+  }
+  
+  /* もしカード全体の上下の“抜け”が気になる場合は外側余白を微調整 */
+  .courses-layout {
+    gap: clamp(22px, 3.5vw, 36px);
+  }
+      
+/* コース名の色（.course-title）をコースごとにテーマカラーに */
+.course-card.accent-blue .course-title {
+  color: var(--accent1); /* 例：青（特別進学） */
+}
+.course-card.accent-coral .course-title {
+  color: var(--accent2); /* 例：赤系（総合） */
+}
+.course-card.accent-purple .course-title {
+  color: var(--accent3); /* 例：紫系（調理科） */
+}
+
+/* 太字・サイズはそのままでOK（ベースが以下のように指定されていれば） */
+.course-title {
+  font-size: clamp(1.4rem, 1.1rem + 1vw, 1.8rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin: 0;
+}
+/* =========================================================
+   SCHOOL LIFE SECTION - Enhanced Design
+   年間行事・フォトギャラリー・海外研修の統一デザイン強化
+========================================================= */
+
+/* ----- 年間行事スライダー（facilities-slider）の現代的強化 ----- */
+.facilities-slider {
+    position: relative;
+    padding: var(--sp-4) 0;
+    isolation: isolate;
+}
+
+/* スライダートラック全体にグラデーション背景 */
+.facilities-track {
+    display: flex;
+    gap: clamp(14px, 2vw, 18px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 8px 10px 16px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    position: relative;
+    
+    /* 微細なテクスチャ背景 */
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(244, 167, 44, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(98, 162, 175, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(226, 107, 90, 0.02) 0%, transparent 50%);
+    border-radius: 16px;
+    margin: 0 -6px;
+}
+
+.facilities-track::-webkit-scrollbar {
+    display: none;
+}
+
+/* 各スライドカードの強化 */
+.facility-slide {
+    scroll-snap-align: center;
+    flex: 0 0 clamp(72%, 54vw, 34%);
+    background: var(--color-surface);
+    border-radius: 20px;
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, .08),
+        0 4px 12px rgba(0, 0, 0, .04);
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, .6);
+    transition: transform .3s ease, box-shadow .3s ease;
+    backdrop-filter: blur(1px);
+}
+
+.facility-slide:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, .12),
+        0 8px 20px rgba(0, 0, 0, .06);
+}
+
+/* 画像の強化 */
+.facility-slide img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform .4s ease, filter .3s ease;
+}
+
+.facility-slide:hover img {
+    transform: scale(1.05);
+    filter: brightness(1.02) saturate(1.05);
+}
+
+/* キャプションの現代的デザイン */
+.facility-slide figcaption {
+    text-align: center;
+    padding: clamp(12px, 2vw, 16px);
+    font-weight: 900;
+    color: #333;
+    background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+    position: relative;
+    font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+    letter-spacing: .02em;
+}
+
+/* キャプションにアクセントライン */
+.facility-slide figcaption::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent1), var(--primary));
+    border-radius: 0 0 999px 999px;
+}
+
+/* ナビゲーションボタンの強化 */
+.facilities-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 
+        0 12px 28px rgba(0, 0, 0, .15),
+        0 4px 12px rgba(0, 0, 0, .08);
+    border: 1px solid rgba(255, 255, 255, .8);
+    color: #2b2b2b;
+    font-size: 22px;
+    font-weight: 900;
+    display: grid;
+    place-items: center;
+    z-index: 10;
+    transition: all .25s ease;
+    cursor: pointer;
+}
+
+.facilities-nav:hover {
+    transform: translateY(-50%) scale(1.08);
+    background: #fff;
+    box-shadow: 
+        0 16px 36px rgba(0, 0, 0, .18),
+        0 6px 16px rgba(0, 0, 0, .10);
+}
+
+.facilities-nav:active {
+    transform: translateY(-50%) scale(.98);
+}
+
+.facilities-nav:disabled {
+    opacity: .4;
+    cursor: default;
+    transform: translateY(-50%);
+}
+
+.facilities-nav.prev {
+    left: -16px;
+}
+
+.facilities-nav.next {
+    right: -16px;
+}
+
+/* ----- フォトギャラリー（perspective-carousel）の強化 ----- */
+.perspective-carousel {
+    position: relative;
+    padding: var(--sp-5) 0 var(--sp-6);
+    background: 
+        radial-gradient(ellipse at 30% 20%, rgba(98, 162, 175, 0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(244, 167, 44, 0.04) 0%, transparent 60%);
+    border-radius: 24px;
+    margin: var(--sp-4) 0;
+    isolation: isolate;
+}
+
+.carousel-track-container {
+    position: relative;
+    padding: var(--sp-4) 0;
+    height: 320px;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-slide {
+    width: clamp(280px, 35vw, 420px);
+    aspect-ratio: 4 / 3;
+    margin: 0 var(--sp-2);
+    flex-shrink: 0;
+    border-radius: 18px;
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, .12),
+        0 6px 16px rgba(0, 0, 0, .06);
+    overflow: hidden;
+    position: relative;
+    background: #eee;
+    transition: transform 0.6s ease, opacity 0.5s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, .6);
+}
+
+.carousel-slide:hover {
+    box-shadow: 
+        0 24px 48px rgba(0, 0, 0, .16),
+        0 10px 24px rgba(0, 0, 0, .08);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    transition: transform .4s ease, filter .3s ease;
+}
+
+.carousel-slide:hover img {
+    transform: scale(1.02);
+    filter: brightness(1.05) saturate(1.08);
+}
+
+/* カルーセルナビゲーション */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 28px;
+    margin-top: var(--sp-4);
+}
+
+.carousel-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .95);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, .8);
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, .1),
+        0 3px 8px rgba(0, 0, 0, .06);
+    font-size: 20px;
+    color: #333;
+    cursor: pointer;
+    transition: all .25s ease;
+    font-weight: 700;
+}
+
+.carousel-button:hover {
+    transform: scale(1.08);
+    background: #fff;
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, .14),
+        0 5px 12px rgba(0, 0, 0, .08);
+}
+
+.carousel-button:active {
+    transform: scale(.98);
+}
+
+.carousel-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.carousel-dots button {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .2);
+    border: none;
+    cursor: pointer;
+    transition: all .25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .1);
+}
+
+.carousel-dots button.is-active {
+    background: linear-gradient(135deg, var(--accent1), var(--primary));
+    transform: scale(1.3);
+    box-shadow: 
+        0 2px 6px rgba(0, 0, 0, .1);
+}
+
+/* ----- 海外研修プログラム（overseas-grid）の強化 ----- */
+.overseas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(20px, 3vw, 32px);
+    margin-top: var(--sp-4);
+    padding: var(--sp-3);
+    background: 
+        radial-gradient(circle at 20% 10%, rgba(182, 142, 196, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(226, 107, 90, 0.04) 0%, transparent 50%);
+    border-radius: 20px;
+}
+
+.overseas-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border-radius: 20px;
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, .08),
+        0 4px 12px rgba(0, 0, 0, .04);
+    overflow: hidden;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, .6);
+    transition: all .3s ease;
+    position: relative;
+    backdrop-filter: blur(1px);
+}
+
+.overseas-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent1), var(--primary), var(--accent2));
+    border-radius: 20px 20px 0 0;
+}
+
+.overseas-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+        0 20px 48px rgba(0, 0, 0, .12),
+        0 8px 20px rgba(0, 0, 0, .06);
+}
+
+.overseas-thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f4f8, #e8ecf0);
+}
+
+.overseas-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease, filter .3s ease;
+}
+
+.overseas-card:hover .overseas-thumb img {
+    transform: scale(1.05);
+    filter: brightness(1.05) saturate(1.08);
+}
+
+/* バッジの強化 */
+.overseas-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: linear-gradient(135deg, var(--accent1), #7bb8c4);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 900;
+    padding: .4em .9em;
+    border-radius: 999px;
+    box-shadow: 
+        0 8px 20px rgba(98, 162, 175, .25),
+        0 3px 8px rgba(0, 0, 0, .15);
+    letter-spacing: .02em;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* コンテンツエリア */
+.overseas-content {
+    padding: clamp(20px, 3.5vw, 28px);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.overseas-title {
+    font-size: clamp(1.1rem, 2.2vw, 1.3rem);
+    font-weight: 900;
+    line-height: 1.3;
+    color: var(--color-text);
+    margin: 0;
+    position: relative;
+    padding-left: 24px;
+}
+
+/* タイトル前のアイコン */
+.overseas-title::before {
+    content: "✈";
+    position: absolute;
+    left: 0;
+    color: var(--accent1);
+    font-size: 1.1em;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,.1));
+}
+
+.overseas-desc {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+    margin: 0;
+    padding: 12px 16px;
+    background: linear-gradient(135deg, #fafbfc, #f5f7fa);
+    border-radius: 12px;
+    border-left: 3px solid var(--accent1);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.03);
+}
+
+/* ----- セクション共通の装飾強化 ----- */
+#life .subhead {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    font-weight: 900;
+    color: #2d2d2d;
+    text-align: center;
+    margin: var(--sp-6) auto var(--sp-4);
+    position: relative;
+    max-width: 600px;
+    padding: 0 var(--sp-3);
+}
+
+#life .subhead::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent2), var(--primary));
+    border-radius: 999px;
+}
+
+#life .note {
+    text-align: center;
+    color: #666;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    margin-bottom: var(--sp-4);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* ----- レスポンシブ調整 ----- */
+@media (max-width: 960px) {
+    .overseas-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: clamp(16px, 3vw, 24px);
+        padding: var(--sp-2);
+    }
+    
+    .facilities-nav {
+        width: 46px;
+        height: 46px;
+        font-size: 20px;
+    }
+    
+    .facilities-nav.prev {
+        left: -12px;
+    }
+    
+    .facilities-nav.next {
+        right: -12px;
+    }
+}
+
+@media (max-width: 640px) {
+    .overseas-grid {
+        grid-template-columns: 1fr;
+        gap: var(--sp-3);
+        padding: var(--sp-2);
+    }
+    
+    .facilities-nav {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+        border-radius: 12px;
+    }
+    
+    .facilities-nav.prev,
+    .facilities-nav.next {
+        left: -8px;
+        right: -8px;
+    }
+    
+    .carousel-button {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+    }
+    
+    .overseas-title {
+        padding-left: 20px;
+    }
+    
+    .overseas-title::before {
+        font-size: 1em;
+    }
+}
+
+/* ----- アニメーション効果 ----- */
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.facility-slide {
+    animation: slideInFromLeft 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.facility-slide:nth-child(even) {
+    animation-name: slideInFromRight;
+}
+
+.facility-slide:nth-child(n+3) {
+    animation-delay: 0.1s;
+}
+
+.facility-slide:nth-child(n+5) {
+    animation-delay: 0.2s;
+}
+
+.overseas-card {
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.overseas-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.overseas-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+/* ----- 低モーション設定対応 ----- */
+@media (prefers-reduced-motion: reduce) {
+    .facility-slide,
+    .overseas-card,
+    .carousel-slide,
+    .facilities-nav,
+    .carousel-button,
+    .overseas-thumb img,
+    .facility-slide img {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    .facility-slide:hover,
+    .overseas-card:hover,
+    .carousel-slide:hover {
+        transform: none;
+    }
+}
+
+/* ----- 高コントラスト対応 ----- */
+@media (prefers-contrast: high) {
+    .facility-slide,
+    .overseas-card,
+    .carousel-slide {
+        border-width: 2px;
+        border-color: #333;
+    }
+    
+    .facilities-nav,
+    .carousel-button {
+        border-width: 2px;
+        border-color: #333;
+        background: #fff;
+        color: #000;
+    }
+    
+    .overseas-title,
+    .facility-slide figcaption {
+        color: #000;
+    }
+    
+    .overseas-desc {
+        background: #f0f0f0;
+        border-left-width: 4px;
+        border-left-color: #000;
+    }
+}
+
+#entry {
+    background: #FFF9E3
+}
+
+#entry .section-title span {
+    background: #f3d157
+}
+
+/* =========================================================
+   ADMISSION SECTION - 入試情報
+========================================================= */
+#admission {
+    background: #EFF8FB;
+    position: relative;
+}
+
+#admission::before {
+    opacity: .4;
+    background: radial-gradient(circle at 1px 1px, rgba(98, 162, 175, .1) 1px, transparent 0) 0 0/10px 10px;
+}
+
+#admission .section-title span {
+    background: #5fb3c7;
+    border: 2px solid rgba(255, 255, 255, .6);
+}
+
+.admission-wrapper {
+    position: relative;
+}
+
+.admission-lead {
+    text-align: center;
+    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    color: #666;
+    margin-bottom: var(--sp-5);
+    line-height: 1.6;
+}
+
+/* 募集要項カード - 既存のinterview-cardスタイルに準拠 */
+.admission-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(14px, 2vw, 22px);
+    margin-bottom: var(--sp-6);
+}
+
+.admission-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    border-top: 6px solid rgba(0, 0, 0, .06);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.admission-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+}
+
+.admission-card.accent-blue {
+    border-top-color: var(--accent1);
+    background: linear-gradient(180deg, #fff 50%, #f0f8fa 100%);
+}
+
+.admission-card.accent-coral {
+    border-top-color: var(--accent2);
+    background: linear-gradient(180deg, #fff 50%, #fff1ef 100%);
+}
+
+.admission-card.accent-purple {
+    border-top-color: var(--accent3);
+    background: linear-gradient(180deg, #fff 50%, #f9f4fb 100%);
+}
+
+.admission-card-inner {
+    padding: clamp(16px, 2.2vw, 22px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+}
+
+.admission-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admission-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    font-size: 1.5rem;
+    filter: grayscale(20%);
+}
+
+.admission-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.admission-title {
+    font-size: 1.15rem;
+    font-weight: 900;
+    color: #333;
+    margin: 0 0 4px;
+    line-height: 1.3;
+}
+
+.admission-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.admission-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 12px;
+    border-top: 1px dashed rgba(0, 0, 0, .1);
+}
+
+.admission-info {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+}
+
+.info-label {
+    color: #888;
+    font-weight: 700;
+}
+
+.info-value {
+    color: #333;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.admission-arrow {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, .06);
+    border-radius: 50%;
+    color: #666;
+    font-size: 1rem;
+    transition: all .15s ease;
+}
+
+.admission-card:hover .admission-arrow {
+    background: var(--primary);
+    color: #fff;
+    transform: translateX(2px);
+}
+
+/* 入試日程 - 既存のnumber-boxスタイルに準拠 */
+.admission-schedule {
+    margin: var(--sp-6) 0;
+}
+
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(16px, 3vw, 24px);
+    margin-top: var(--sp-4);
+}
+
+.schedule-item {
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: clamp(16px, 2.2vw, 22px);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border-top: 6px solid var(--accent1);
+    background: linear-gradient(180deg, #fff 50%, #f0f8fa 100%);
+    transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.schedule-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+}
+
+.schedule-item:nth-child(2) {
+    border-top-color: var(--accent2);
+    background: linear-gradient(180deg, #fff 50%, #fff1ef 100%);
+}
+
+.schedule-type {
+    font-weight: 800;
+    color: #555;
+    line-height: 1.2;
+}
+
+.schedule-date {
+    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
+    line-height: 1;
+    color: #1f1f1f;
+    font-weight: 700;
+    letter-spacing: .02em;
+    margin: 8px 0;
+}
+
+.schedule-note {
+    color: #666;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* ボタングループ */
+.admission-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: var(--sp-5);
+}
+
+.admission-buttons .btn {
+    font-size: 1.05rem;
+    padding: .8em 1.8em;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 960px) {
+    .admission-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .admission-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .admission-buttons {
+        flex-direction: column;
+    }
+    
+    .admission-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* 低モーション設定対応 */
+@media (prefers-reduced-motion: reduce) {
+    .admission-card,
+    .schedule-item {
+        transition: none !important;
+    }
+    
+    .admission-card:hover,
+    .schedule-item:hover {
+        transform: none;
+    }
 }
