@@ -4910,278 +4910,96 @@ section#about.about-hero::after {
     }
 }
 
-#entry {
-    background: #FFF9E3
-}
-
-#entry .section-title span {
-    background: #f3d157
-}
-
 /* =========================================================
-   ADMISSION SECTION - 入試情報
+   ADMISSION SECTION - Placeholder/Coming Soon
 ========================================================= */
-#admission {
-    background: #EFF8FB;
-    position: relative;
-}
-
-#admission::before {
-    opacity: .4;
-    background: radial-gradient(circle at 1px 1px, rgba(98, 162, 175, .1) 1px, transparent 0) 0 0/10px 10px;
-}
-
-#admission .section-title span {
-    background: #5fb3c7;
-    border: 2px solid rgba(255, 255, 255, .6);
-}
-
-.admission-wrapper {
-    position: relative;
-}
-
-.admission-lead {
-    text-align: center;
-    font-size: clamp(0.95rem, 1.8vw, 1.1rem);
-    color: #666;
-    margin-bottom: var(--sp-5);
-    line-height: 1.6;
-}
-
-/* 募集要項カード - 既存のinterview-cardスタイルに準拠 */
-.admission-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: clamp(14px, 2vw, 22px);
-    margin-bottom: var(--sp-6);
-}
-
-.admission-card {
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, .06);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    border-top: 6px solid rgba(0, 0, 0, .06);
-    transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.admission-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
-}
-
-.admission-card.accent-blue {
-    border-top-color: var(--accent1);
-    background: linear-gradient(180deg, #fff 50%, #f0f8fa 100%);
-}
-
-.admission-card.accent-coral {
-    border-top-color: var(--accent2);
-    background: linear-gradient(180deg, #fff 50%, #fff1ef 100%);
-}
-
-.admission-card.accent-purple {
-    border-top-color: var(--accent3);
-    background: linear-gradient(180deg, #fff 50%, #f9f4fb 100%);
-}
-
-.admission-card-inner {
-    padding: clamp(16px, 2.2vw, 22px);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    flex: 1;
-}
-
-.admission-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.admission-icon {
-    flex-shrink: 0;
-    width: 48px;
-    height: 48px;
-    display: grid;
-    place-items: center;
-    font-size: 1.5rem;
-    filter: grayscale(20%);
-}
-
-.admission-content {
-    flex: 1;
-    min-width: 0;
-}
-
-.admission-title {
-    font-size: 1.15rem;
-    font-weight: 900;
-    color: #333;
-    margin: 0 0 4px;
-    line-height: 1.3;
-}
-
-.admission-desc {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-    line-height: 1.5;
-}
-
-.admission-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 12px;
-    border-top: 1px dashed rgba(0, 0, 0, .1);
-}
-
-.admission-info {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.9rem;
-}
-
-.info-label {
-    color: #888;
-    font-weight: 700;
-}
-
-.info-value {
-    color: #333;
-    font-weight: 900;
-    font-size: 1.1rem;
-}
-
-.admission-arrow {
-    width: 28px;
-    height: 28px;
-    display: grid;
-    place-items: center;
-    background: rgba(0, 0, 0, .06);
-    border-radius: 50%;
-    color: #666;
-    font-size: 1rem;
-    transition: all .15s ease;
-}
-
-.admission-card:hover .admission-arrow {
-    background: var(--primary);
-    color: #fff;
-    transform: translateX(2px);
-}
-
-/* 入試日程 - 既存のnumber-boxスタイルに準拠 */
-.admission-schedule {
-    margin: var(--sp-6) 0;
-}
-
-.schedule-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: clamp(16px, 3vw, 24px);
+.admission-placeholder {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: clamp(24px, 5vw, 48px);
     margin-top: var(--sp-4);
-}
-
-.schedule-item {
-    border-radius: 16px;
-    box-shadow: var(--shadow);
-    padding: clamp(16px, 2.2vw, 22px);
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    border-top: 6px solid var(--accent1);
-    background: linear-gradient(180deg, #fff 50%, #f0f8fa 100%);
-    transition: transform .15s ease, box-shadow .15s ease;
+    border: 1px solid rgba(0,0,0,.05);
+    box-shadow: var(--shadow);
 }
 
-.schedule-item:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 26px rgba(0, 0, 0, .12);
+.admission-placeholder .subhead {
+    font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+    color: var(--color-text);
 }
 
-.schedule-item:nth-child(2) {
-    border-top-color: var(--accent2);
-    background: linear-gradient(180deg, #fff 50%, #fff1ef 100%);
+.placeholder-icon {
+    color: var(--accent1);
+    margin: var(--sp-3) auto;
+    opacity: 0.8;
 }
 
-.schedule-type {
-    font-weight: 800;
-    color: #555;
-    line-height: 1.2;
-}
-
-.schedule-date {
-    font-size: clamp(1.1rem, 2.8vw, 1.4rem);
-    line-height: 1;
-    color: #1f1f1f;
-    font-weight: 700;
-    letter-spacing: .02em;
-    margin: 8px 0;
-}
-
-.schedule-note {
-    color: #666;
-    font-weight: 700;
-    font-size: 0.9rem;
-}
-
-/* ボタングループ */
-.admission-buttons {
-    display: flex;
-    gap: 12px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: var(--sp-5);
-}
-
-.admission-buttons .btn {
+.placeholder-text {
     font-size: 1.05rem;
-    padding: .8em 1.8em;
+    line-height: 1.8;
+    color: var(--color-text);
+    font-weight: 500;
+    margin-bottom: var(--sp-4);
 }
 
-/* レスポンシブ対応 */
-@media (max-width: 960px) {
-    .admission-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .schedule-grid {
-        grid-template-columns: 1fr;
-    }
+.placeholder-note {
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--color-muted);
+    background: #f8f9fa;
+    border-radius: var(--radius);
+    padding: var(--sp-3);
+    max-width: 600px;
+    margin: 0 auto var(--sp-5);
+}
+/* =========================================================
+   ADMISSION SECTION - Simple & Stand-out Design
+========================================================= */
+
+/* 1. セクション全体の背景を白に変更 */
+section#admission {
+    background: #fff;
 }
 
-@media (max-width: 640px) {
-    .admission-cards {
-        grid-template-columns: 1fr;
-    }
-    
-    .admission-buttons {
-        flex-direction: column;
-    }
-    
-    .admission-buttons .btn {
-        width: 100%;
-    }
+/* ドット柄の背景は不要なため非表示に */
+#admission::before {
+    display: none;
 }
 
-/* 低モーション設定対応 */
-@media (prefers-reduced-motion: reduce) {
-    .admission-card,
-    .schedule-item {
-        transition: none !important;
-    }
-    
-    .admission-card:hover,
-    .schedule-item:hover {
-        transform: none;
-    }
+/* 2. タイトルをシンプルで目立つ下線スタイルに変更 */
+#admission .section-title {
+    padding-bottom: 12px;
+    margin-bottom: var(--sp-5);
+    position: relative;
+}
+
+
+/* タイトルテキストのスタイルを調整 */
+#admission .section-title span {
+    background: none;
+    color: var(--color-text);
+    box-shadow: none;
+    padding: 0;
+    border: none;
+}
+
+/* 3. 「準備中」エリアを点線で囲むスタイルに変更 */
+.admission-placeholder {
+    background: none; /* 背景色を削除 */
+    box-shadow: none; /* 影を削除 */
+    border: 2px dashed #dcdcdc; /* 点線の枠を追加 */
+    border-radius: var(--radius-lg);
+    padding: clamp(32px, 5vw, 48px);
+}
+
+/* アイコンの色をキーカラーに変更 */
+.placeholder-icon {
+    color: var(--primary);
+}
+
+.placeholder-note {
+    background: none; /* 背景色を削除 */
+    padding: 0;
+    margin-bottom: var(--sp-4);
+    border-radius: 0;
 }
