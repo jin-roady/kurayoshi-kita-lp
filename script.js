@@ -1,5 +1,5 @@
 /* =========================================================
-   Kurayoshi Kita HS LP - script.js (Fixed Club Links Version)
+   Kurayoshi Kita HS LP - script.js (Fixed Version)
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,10 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileHeroSlider();
   initPerspectiveCarousel(); 
   initClubSliders();
-
-  // ▼▼▼ 追加：コースカード等のフェードアップ出現 ▼▼▼
   initRevealCards();
-  // ▲▲▲ 追加ここまで ▲▲▲
+  initSideRail();
 });
 
 
@@ -270,12 +268,10 @@ function initClubSliders() {
     const nextBtn = wrap.querySelector('.club-next');
     if (!track || !prevBtn || !nextBtn) return;
 
-    // アクセシビリティ属性を設定
     track.setAttribute('role', 'region');
     track.setAttribute('aria-roledescription', 'carousel');
     if (!track.hasAttribute('tabindex')) track.setAttribute('tabindex', '0');
 
-    // ボタンの有効/無効を判定する関数
     const atStart = () => track.scrollLeft < 5;
     const atEnd = () => track.scrollLeft + track.clientWidth > track.scrollWidth - 5;
     const getGap = () => parseFloat(getComputedStyle(track).gap) || 16;
@@ -284,7 +280,6 @@ function initClubSliders() {
       nextBtn.disabled = atEnd();
     };
 
-    // スクロールステップを計算
     const calcStepPx = () => {
       const stepCards = Math.max(1, parseInt(wrap.dataset.step || "3", 10));
       const firstCard = track.querySelector('.club-card');
@@ -292,7 +287,6 @@ function initClubSliders() {
       return stepCards * (firstCard.getBoundingClientRect().width + getGap());
     };
 
-    // スムーススクロール
     const scrollByStep = (px) => {
       track.scrollBy({ left: px, behavior: 'smooth' });
     };
@@ -303,25 +297,21 @@ function initClubSliders() {
       updateButtons(); 
     };
 
-    // ボタンのクリックイベント
     prevBtn.addEventListener('click', () => scrollByStep(-stepPx));
     nextBtn.addEventListener('click', () => scrollByStep(stepPx));
 
-    // ホイールスクロール対応
     track.addEventListener('wheel', (e) => {
       if (e.deltaY === 0) return;
       e.preventDefault();
       track.scrollLeft += e.deltaY;
     }, { passive: false });
 
-    // ドラッグ機能の実装
     let isDown = false;
     let startX = 0;
     let scrollStart = 0;
     let hasMoved = false;
     
     track.addEventListener('pointerdown', (e) => {
-      // 左クリックのみ処理
       if (e.button !== 0) return;
       
       isDown = true;
@@ -337,7 +327,6 @@ function initClubSliders() {
       
       const dx = e.clientX - startX;
       
-      // 5px以上動いたらドラッグとみなす
       if (Math.abs(dx) > 5) {
         hasMoved = true;
         e.preventDefault();
@@ -345,7 +334,6 @@ function initClubSliders() {
       }
     });
 
-    // ドラッグ終了処理
     const endDrag = () => {
       if (!isDown) return;
       
@@ -353,9 +341,7 @@ function initClubSliders() {
       track.style.cursor = 'grab';
       track.style.userSelect = '';
       
-      // ドラッグが発生した場合、しばらくクリックを無効化
       if (hasMoved) {
-        // リンクに一時的にクリック無効化フラグを設定
         const links = track.querySelectorAll('.club-card a');
         links.forEach(link => {
           link.style.pointerEvents = 'none';
@@ -372,7 +358,6 @@ function initClubSliders() {
     track.addEventListener('pointerleave', endDrag);
     track.addEventListener('pointercancel', endDrag);
 
-    // キーボード操作
     track.addEventListener('keydown', (e) => {
       const keys = ['ArrowLeft', 'ArrowRight', 'Home', 'End'];
       if (!keys.includes(e.key)) return;
@@ -384,7 +369,6 @@ function initClubSliders() {
       if (e.key === 'End')  track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
     });
 
-    // スクロールとリサイズの監視
     track.addEventListener('scroll', updateButtons, { passive: true });
     new ResizeObserver(recalc).observe(track);
     updateButtons();
@@ -393,8 +377,7 @@ function initClubSliders() {
 
 
 /* ------------------------------------------
- * 7) Reveal-up animation for cards (ADDED)
- *    .reveal-up に .is-visible を付与してフェード表示
+ * 7) Reveal-up animation for cards
  * ---------------------------------------- */
 function initRevealCards() {
   const targets = document.querySelectorAll('.reveal-up');
@@ -410,4 +393,64 @@ function initRevealCards() {
   }, { threshold: 0.15, rootMargin: "0px 0px -10% 0px" });
 
   targets.forEach(el => io.observe(el));
+}
+
+
+/* ------------------------------------------
+ * 8) Side Rail - Show after scrolling past FV (PC only)
+ *    モバイルは常に表示、PCのみスクロール後に表示
+ * ---------------------------------------- */
+function initSideRail() {
+  const sideRail = document.querySelector('.side-rail');
+  if (!sideRail) return;
+
+  // モバイル判定
+  const isMobile = () => window.innerWidth <= 768;
+
+  const heroSection = document.querySelector('.hero-split-bg');
+  const triggerHeight = heroSection ? heroSection.offsetHeight * 0.6 : 500;
+
+  const checkScroll = () => {
+    // モバイルの場合は何もしない（常に表示）
+    if (isMobile()) {
+      sideRail.classList.remove('side-rail-hidden');
+      sideRail.classList.remove('side-rail-visible');
+      return;
+    }
+
+    // PC時のみスクロール制御
+    const scrolled = window.scrollY || window.pageYOffset;
+    
+    if (scrolled > triggerHeight) {
+      sideRail.classList.add('side-rail-visible');
+      sideRail.classList.remove('side-rail-hidden');
+    } else {
+      sideRail.classList.add('side-rail-hidden');
+      sideRail.classList.remove('side-rail-visible');
+    }
+  };
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        checkScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // リサイズ時に再チェック
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      checkScroll();
+    }, 200);
+  }, { passive: true });
+
+  checkScroll();
+  
+  console.log('Side rail initialized. Mode:', isMobile() ? 'Mobile (always visible)' : 'Desktop (scroll-triggered)');
 }
