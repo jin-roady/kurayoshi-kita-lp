@@ -397,8 +397,7 @@ function initRevealCards() {
 
 
 /* ------------------------------------------
- * 8) Side Rail - Show after scrolling past FV (PC only)
- *    モバイルは常に表示、PCのみスクロール後に表示
+ * 8) Side Rail - モバイルは常に表示、PCはスクロール後に表示
  * ---------------------------------------- */
 function initSideRail() {
   const sideRail = document.querySelector('.side-rail');
@@ -411,22 +410,26 @@ function initSideRail() {
   const triggerHeight = heroSection ? heroSection.offsetHeight * 0.6 : 500;
 
   const checkScroll = () => {
-    // モバイルの場合は何もしない（常に表示）
-    if (isMobile()) {
-      sideRail.classList.remove('side-rail-hidden');
-      sideRail.classList.remove('side-rail-visible');
-      return;
-    }
-
-    // PC時のみスクロール制御
     const scrolled = window.scrollY || window.pageYOffset;
     
-    if (scrolled > triggerHeight) {
-      sideRail.classList.add('side-rail-visible');
-      sideRail.classList.remove('side-rail-hidden');
+    if (isMobile()) {
+      // モバイル: 少しスクロールしたら表示（ヒーローの影響を受けにくく）
+      if (scrolled > 100) {
+        sideRail.classList.add('side-rail-visible');
+        sideRail.classList.remove('side-rail-hidden');
+      } else {
+        sideRail.classList.add('side-rail-hidden');
+        sideRail.classList.remove('side-rail-visible');
+      }
     } else {
-      sideRail.classList.add('side-rail-hidden');
-      sideRail.classList.remove('side-rail-visible');
+      // PC: ヒーロー通過後に表示
+      if (scrolled > triggerHeight) {
+        sideRail.classList.add('side-rail-visible');
+        sideRail.classList.remove('side-rail-hidden');
+      } else {
+        sideRail.classList.add('side-rail-hidden');
+        sideRail.classList.remove('side-rail-visible');
+      }
     }
   };
 
@@ -450,7 +453,7 @@ function initSideRail() {
     }, 200);
   }, { passive: true });
 
+  // 初期状態は非表示
+  sideRail.classList.add('side-rail-hidden');
   checkScroll();
-  
-  console.log('Side rail initialized. Mode:', isMobile() ? 'Mobile (always visible)' : 'Desktop (scroll-triggered)');
 }
