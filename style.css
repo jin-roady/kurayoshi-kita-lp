@@ -6935,4 +6935,147 @@ section#about.about-hero::after {
     }
     .graduate-text{padding: 0 6px}     /* 端ギリを回避 */
   }
+  /* ===== facilities ナビが片側だけ消える問題の対策（最終上書き） ===== */
+.facilities-slider { 
+    position: relative;         /* 参照位置を明示 */
+    overflow: visible;          /* クリップされないように */
+  }
+  
+  .facilities-nav {
+    z-index: 80 !important;     /* 周囲の装飾や固定UIより前面に */
+    top: 50%;
+    transform: translateY(-50%);
+    /* どの幅でも“内側”に置く（負の値をやめる） */
+  }
+  
+  .facilities-nav.prev  { left:  clamp(6px, 2.5vw, 14px) !important; }
+  .facilities-nav.next  { right: clamp(6px, 2.5vw, 14px) !important; }
+  
+  /* notch 等の安全域も考慮（対応端末のみ効く） */
+  @supports (right: max(0px)) {
+    .facilities-nav.next { right: max(clamp(6px, 2.5vw, 14px), env(safe-area-inset-right)); }
+    .facilities-nav.prev { left:  max(clamp(6px, 2.5vw, 14px), env(safe-area-inset-left)); }
+  }
+  
+  /* モバイルで矢印がカードの角丸に飲まれないよう少し上げる */
+  @media (max-width: 640px) {
+    .facilities-nav { top: 45%; }
+  }
+/* facilities：矢印の競合リセット＆常に両側表示 */
+.facilities-slider {
+    position: relative;
+    overflow: visible;                 /* クリップ防止 */
+    --nav-gap: clamp(6px, 2.5vw, 14px);
+    padding-left:  calc(var(--nav-gap) + 6px);  /* 矢印ぶんの内側余白 */
+    padding-right: calc(var(--nav-gap) + 6px);
+  }
+  
+  .facilities-nav {
+    z-index: 120 !important;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* ← 左ボタン：rightを必ず無効化 */
+  .facilities-nav.prev  {
+    left: var(--nav-gap) !important;
+    right: auto !important;
+  }
+  
+  /* → 右ボタン：leftを必ず無効化 */
+  .facilities-nav.next  {
+    right: var(--nav-gap) !important;
+    left:  auto !important;
+  }
+  
+  /* セーフエリア対応（ノッチ端末） */
+  @supports (right: max(0px)) {
+    .facilities-nav.prev { left:  max(var(--nav-gap), env(safe-area-inset-left)); }
+    .facilities-nav.next { right: max(var(--nav-gap), env(safe-area-inset-right)); }
+  }
+  
+  /* モバイルで少しだけ上に寄せる（お好みなら調整） */
+  @media (max-width: 640px) {
+    .facilities-nav { top: 45%; }
+  }
+  
+  /* 無効時も視認性を少し上げる（任意） */
+  .facilities-nav:disabled { opacity: .6; }
+    /* ==== FIX 2: 卒業生インタビュー画像を切らない ==== */
+/* 切らずに全体表示（余白は出ます） */
+.interview-image {
+    aspect-ratio: 16/9;      /* 高さ固定の代わりに比率で安定 */
+    height: auto !important; /* 140pxを解除 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+  }
+  .interview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important; /* ← ここがポイント */
+    object-position: center;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+  
+  /* 余白を出したくない（全面カバーでOK）場合は下の1行に切り替え */
+  /* .interview-image img { object-fit: cover !important; } */
+
+  /* 画像の外側に出せるように */
+.overseas-thumb{
+    position: relative;
+    overflow: visible;           /* ← これでバッジを外へ出せる */
+  }
+  
+  /* 左隅から半円タブをにゅっと出す */
+  .overseas-badge{
+    position: absolute;
+    top: 14px;
+    left: -10px;                 /* ← 画像の外へ少しはみ出す */
+    z-index: 2;
+    display: inline-block;
+    padding: .46em 1.05em .46em 1.2em;
+    max-width: min(72%, 260px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  
+    background: rgba(98,162,175,.95);
+    color: #fff;
+    font-weight: 900;
+    font-size: .92rem;
+    line-height: 1;
+  
+    /* 左は直線、右は丸：半円タブ風 */
+    border-radius: 0 999px 999px 0;
+    border: 1px solid rgba(255,255,255,.65);
+    box-shadow: 0 10px 22px rgba(0,0,0,.18);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  
+    pointer-events: none;        /* 画像リンク操作を邪魔しない */
+  }
+  
+  /* ちょっとした縁の演出（任意） */
+  .overseas-badge::before{
+    content:"";
+    position:absolute;
+    inset:-1px auto -1px -12px;  /* 左側だけ少し広げる */
+    width: 12px;
+    background: inherit;
+    border-radius: 0;            /* 左端は直線のまま */
+  }
+  
+  /* モバイルで控えめに */
+  @media (max-width:640px){
+    .overseas-badge{
+      top: 10px;
+      left: -8px;
+      font-size: .86rem;
+      padding: .36em .8em .36em 1em;
+      max-width: 80%;
+    }
+  }
   
