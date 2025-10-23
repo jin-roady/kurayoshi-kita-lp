@@ -7078,4 +7078,83 @@ section#about.about-hero::after {
       max-width: 80%;
     }
   }
+  /* ==== ABOUT 背景ワード：左→右ループ ==== */
+section#about.about-hero{
+    position: relative;
+    overflow: hidden;                 /* はみ出し隠し */
+    --marquee-speed: 28s;             /* 速さ（小さいほど速い） */
+    --marquee-color: #9B8B7E;
+  }
+  
+  /* 既存の静止テキストを無効化 */
+  section#about.about-hero::after{
+    content: none !important;
+  }
+  
+  /* 2本の帯を並走させて継ぎ目なしに */
+  section#about.about-hero::before,
+  section#about.about-hero::after{
+    content: "KURAYOSHIKITA   KURAYOSHIKITA   KURAYOSHIKITA";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6%;
+    z-index: 0;
+    pointer-events: none;
+    white-space: nowrap;
+    font-family: 'Yusei Magic', sans-serif;
+    font-weight: 900;
+    letter-spacing: .09em;
+    color: var(--marquee-color);
+    opacity: .06;
+    font-size: clamp(3rem, 18vw, 10rem);
+    line-height: 1;
+    will-change: transform;
+  }
+  
+  /* 1本目：左端の外から右へ */
+  section#about.about-hero::before{
+    transform: translateX(-100%);
+    animation: aboutMarqueeR var(--marquee-speed) linear infinite;
+  }
+  
+  /* 2本目：画面内から右へ（1本目と継ぎ目を作らない） */
+  section#about.about-hero::after{
+    transform: translateX(0%);
+    animation: aboutMarqueeR var(--marquee-speed) linear infinite;
+  }
+  
+  /* 左→右に流す */
+  @keyframes aboutMarqueeR{
+    0%   { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  /* 動きが苦手なユーザー配慮 */
+  @media (prefers-reduced-motion: reduce){
+    section#about.about-hero::before,
+    section#about.about-hero::after{
+      animation: none !important;
+      transform: none !important;
+      opacity: .08;
+      content: "KURAYOSHIKITA";
+      text-align: start;
+    }
+  }
+/* ABOUT：流れる帯を“セクション下端”に固定 */
+section#about.about-hero { position: relative; }
+
+section#about.about-hero::before,
+section#about.about-hero::after{
+  top: auto !important;          /* 上基準を無効化 */
+  bottom: 8% !important;          /* 下端に固定（必要なら 2% などに） */
+}
+
+/* SPで下部UIとぶつかる場合は、ほんの少しだけ上げる */
+@media (max-width: 640px){
+  section#about.about-hero::before,
+  section#about.about-hero::after{
+    bottom: 8% !important;          /* 下端に固定（必要なら 2% などに） */
+  }
+}
   
