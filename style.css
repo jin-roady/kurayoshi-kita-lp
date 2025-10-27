@@ -7157,4 +7157,133 @@ section#about.about-hero::after{
     bottom: 8% !important;          /* 下端に固定（必要なら 2% などに） */
   }
 }
+
+.status-intro {
+    text-align: center;
+    margin: 2.5em auto 2em;
+    padding-bottom: 1.2em;
+    position: relative;
+    max-width: 800px;
+  }
   
+  .status-intro .catchcopy {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #2e6ed8;
+    border-bottom: 3px solid #2e6ed8;
+    padding-bottom: 6px;
+    margin-bottom: 0.6em;
+  }
+  
+  .status-intro .desc {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 0.5em;
+  }
+  .status-intro .catchcopy {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2e6ed8;
+    overflow: hidden;
+  }
+  
+  .status-intro .catchcopy::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background: #2e6ed8;
+    animation: underlineGrow 1.2s ease-out forwards;
+  }
+  
+  @keyframes underlineGrow {
+    to {
+      width: 100%;
+    }
+  }
+/* 募集定員テーブル */
+.quota-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  .quota-table th,
+  .quota-table td {
+    border: 1px solid #ccc;
+    padding: 0.8em 1em;
+    text-align: center;
+    vertical-align: top;
+  }
+  
+  .quota-table th {
+    background: #f7f7f7;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .quota-table td strong {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .quota-table .text-small {
+    font-size: 0.8em;
+    color: #777;
+    font-weight: 400;
+  }
+  
+  .quota-table .quota-total td {
+    background: #fafafa;
+    font-weight: 700;
+  }
+  
+  /* アドミッション・ポリシー */
+  .policy-block {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5em 1.5em 1em;
+    line-height: 1.75;
+    color: #333;
+  }
+  
+  .policy-lead {
+    margin-bottom: 1.5em;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .policy-subheading {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 1.2em 0 0.4em;
+    color: #2e2e2e;
+  }
+  
+  .policy-list {
+    margin: 0 0 1.2em 1.2em;
+    padding: 0;
+    list-style: disc;
+    font-size: 0.95rem;
+    color: #444;
+  }
+  
+  .policy-list li {
+    margin-bottom: 0.4em;
+  }
+  
+  .policy-text {
+    font-size: 0.95rem;
+    color: #444;
+    margin: 0 0 1em;
+  }
+      
