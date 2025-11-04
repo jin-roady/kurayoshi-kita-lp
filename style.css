@@ -7285,4 +7285,17 @@ section#about.about-hero::after{
     color: #444;
     margin: 0 0 1em;
   }
-      
+    
+  .interview-badge {
+    display: inline-block;
+    background-color: #f2ecfb; /* ごく淡いラベンダー */
+    color: #5e3fa0; /* 深みのある落ち着いた紫 */
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin: 10px 0;
+    border: 1px solid #d7caef; /* 控えめな紫の枠線 */
+    text-align: center;
+  }
+  
