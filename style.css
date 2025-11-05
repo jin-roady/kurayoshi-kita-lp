@@ -1095,7 +1095,6 @@ a.btn-wire:hover,
 }
 
 .entry-panel .grid {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(14px, 2vw, 20px)
 }
